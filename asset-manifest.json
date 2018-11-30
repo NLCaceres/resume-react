@@ -1,14 +1,14 @@
 {
-  "main.css": "/react-gh-pages/static/css/main.437bcc2f.chunk.css",
-  "main.js": "/react-gh-pages/static/js/main.456320ed.chunk.js",
-  "main.js.map": "/react-gh-pages/static/js/main.456320ed.chunk.js.map",
-  "static/js/1.2dd891c4.chunk.js": "/react-gh-pages/static/js/1.2dd891c4.chunk.js",
-  "static/js/1.2dd891c4.chunk.js.map": "/react-gh-pages/static/js/1.2dd891c4.chunk.js.map",
-  "runtime~main.js": "/react-gh-pages/static/js/runtime~main.346eb3ee.js",
-  "runtime~main.js.map": "/react-gh-pages/static/js/runtime~main.346eb3ee.js.map",
-  "static/media/logo.svg": "/react-gh-pages/static/media/logo.5d5d9eef.svg",
-  "static/css/main.437bcc2f.chunk.css.map": "/react-gh-pages/static/css/main.437bcc2f.chunk.css.map",
-  "index.html": "/react-gh-pages/index.html",
-  "precache-manifest.f7f8310204373c144572d20bfcdb5d8a.js": "/react-gh-pages/precache-manifest.f7f8310204373c144572d20bfcdb5d8a.js",
-  "service-worker.js": "/react-gh-pages/service-worker.js"
+  "main.css": "/resume-react/static/css/main.437bcc2f.chunk.css",
+  "main.js": "/resume-react/static/js/main.f902ab7e.chunk.js",
+  "main.js.map": "/resume-react/static/js/main.f902ab7e.chunk.js.map",
+  "static/js/1.2dd891c4.chunk.js": "/resume-react/static/js/1.2dd891c4.chunk.js",
+  "static/js/1.2dd891c4.chunk.js.map": "/resume-react/static/js/1.2dd891c4.chunk.js.map",
+  "runtime~main.js": "/resume-react/static/js/runtime~main.ec256162.js",
+  "runtime~main.js.map": "/resume-react/static/js/runtime~main.ec256162.js.map",
+  "static/media/logo.svg": "/resume-react/static/media/logo.5d5d9eef.svg",
+  "static/css/main.437bcc2f.chunk.css.map": "/resume-react/static/css/main.437bcc2f.chunk.css.map",
+  "index.html": "/resume-react/index.html",
+  "precache-manifest.97705dd5388d8b0bb578d15144e5eba3.js": "/resume-react/precache-manifest.97705dd5388d8b0bb578d15144e5eba3.js",
+  "service-worker.js": "/resume-react/service-worker.js"
 }
