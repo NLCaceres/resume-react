@@ -1,0 +1,18 @@
+.header {
+  background-color: lime;
+  position: sticky;
+  color: #000 !important;
+}
+
+.brand {
+  color: white !important;
+  background-color: #000;
+}
+
+.navButton {
+  color: #000;
+}
+
+.activeNavButton {
+  background-color: black !important;
+}
