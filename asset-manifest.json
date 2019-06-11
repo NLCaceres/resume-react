@@ -1,17 +1,19 @@
 {
-  "main.css": "/resume-react/static/css/main.7709fcfa.chunk.css",
-  "main.js": "/resume-react/static/js/main.e70b1c0a.chunk.js",
-  "main.js.map": "/resume-react/static/js/main.e70b1c0a.chunk.js.map",
-  "static/css/1.80f09653.chunk.css": "/resume-react/static/css/1.80f09653.chunk.css",
-  "static/js/1.aa5d21a3.chunk.js": "/resume-react/static/js/1.aa5d21a3.chunk.js",
-  "static/js/1.aa5d21a3.chunk.js.map": "/resume-react/static/js/1.aa5d21a3.chunk.js.map",
-  "runtime~main.js": "/resume-react/static/js/runtime~main.ec256162.js",
-  "runtime~main.js.map": "/resume-react/static/js/runtime~main.ec256162.js.map",
-  "static/media/forest.jpeg": "/resume-react/static/media/forest.87310a1e.jpeg",
-  "static/media/mountain.jpeg": "/resume-react/static/media/mountain.cbd71f58.jpeg",
-  "static/css/main.7709fcfa.chunk.css.map": "/resume-react/static/css/main.7709fcfa.chunk.css.map",
-  "static/css/1.80f09653.chunk.css.map": "/resume-react/static/css/1.80f09653.chunk.css.map",
-  "index.html": "/resume-react/index.html",
-  "precache-manifest.a95b11f37803073d802fb350cf272770.js": "/resume-react/precache-manifest.a95b11f37803073d802fb350cf272770.js",
-  "service-worker.js": "/resume-react/service-worker.js"
+  "files": {
+    "main.css": "/resume-react/static/css/main.c25fe1a7.chunk.css",
+    "main.js": "/resume-react/static/js/main.4ec6b269.chunk.js",
+    "main.js.map": "/resume-react/static/js/main.4ec6b269.chunk.js.map",
+    "runtime~main.js": "/resume-react/static/js/runtime~main.5fa25317.js",
+    "runtime~main.js.map": "/resume-react/static/js/runtime~main.5fa25317.js.map",
+    "static/css/2.1e66eaca.chunk.css": "/resume-react/static/css/2.1e66eaca.chunk.css",
+    "static/js/2.a1dbe7fa.chunk.js": "/resume-react/static/js/2.a1dbe7fa.chunk.js",
+    "static/js/2.a1dbe7fa.chunk.js.map": "/resume-react/static/js/2.a1dbe7fa.chunk.js.map",
+    "index.html": "/resume-react/index.html",
+    "precache-manifest.ba9549c43486d2ba41380cd6dec7323e.js": "/resume-react/precache-manifest.ba9549c43486d2ba41380cd6dec7323e.js",
+    "service-worker.js": "/resume-react/service-worker.js",
+    "static/css/2.1e66eaca.chunk.css.map": "/resume-react/static/css/2.1e66eaca.chunk.css.map",
+    "static/css/main.c25fe1a7.chunk.css.map": "/resume-react/static/css/main.c25fe1a7.chunk.css.map",
+    "static/media/forest.jpeg": "/resume-react/static/media/forest.87310a1e.jpeg",
+    "static/media/mountain.jpeg": "/resume-react/static/media/mountain.cbd71f58.jpeg"
+  }
 }
