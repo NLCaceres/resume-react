@@ -1,78 +1,87 @@
 {
-  "Major-projects": {
-    "hospital-app": {
-      "name": "Post-humus",
-      "desc": "Originally an idea of my father's, I began this app to help solve an issue of data collection and data visualization for his department, Infection Control, at work. However, as I worked out the details with him, it became more apparent how helpful this app could be for not only his own hospital but in general. In his experience, hospitals often lag behind in terms of technology, despite being able to benefit immensely from the revolution data collection and computers can bring.",
-      "image": {
-        "src": "https://forums.androidcentral.com/attachments/moto-e-2015/211874d1451776937t-all-apps-screen-screenshot.png",
-        "alt": "Home screen with several buttons to point users to various data points"
-      },
-      "github": "github-url"
+  "Major-projects": [
+    {
+      "name": "PreserVita iOS",
+      "desc": "Originally an idea of my father's, I began this app in Android to help solve an issue of data collection and data visualization for his department, Infection & Control, at work. However, as I worked out the details with him, it became more apparent how helpful this app could be for not only his own hospital but for hospitals and clinics in general. In his experience, hospitals often lag behind in terms of technology, despite the huge benefit data collection often brings.",
+      "images": [
+        {
+          "src": "https://i.imgur.com/N2UszlP.png",
+          "alt": "Home screen with several buttons to point users to various data points"
+        },
+        {
+          "src": "https://images.techhive.com/images/article/2013/11/kitkat_applauncher-100067516-orig.png",
+          "alt": "Home screen displaying "
+        }
+      ],
+      "github": "https://github.com/NLCaceres/iOS-Records"
     },
-    "Fitness-app": {
-      "name": "Work-it",
-      "desc": "One of my first major iOS projects. The idea came from conversations with my best friend about an all encompassing fitness and health app. There are plenty of apps that cover nutrition, and plenty that cover exercise, but we wanted an app that would fit it all in one clean space.",
-      "image": {
-        "src": "https://images.techhive.com/images/article/2013/11/kitkat_applauncher-100067516-orig.png",
-        "alt": "Home screen displaying "
-      },
+    {
+      "name": "Work-it iOS",
+      "desc": "One of my first major iOS projects. The idea came from conversations with my best friend about an all encompassing fitness and health app. There are plenty of apps that cover nutrition, and plenty that cover exercise, but we wanted an app that would fit it all in one clean space. Using this project for my first iOS class, the undertaking was far too much to manage in a month, but I found this realization helped me for future projects by teaching me better project management and setting realistic goals. ",
+      "images": [
+        {
+          "src": "https://images.techhive.com/images/article/2013/11/kitkat_applauncher-100067516-orig.png",
+          "alt": "Home screen displaying "
+        }
+      ],
       "github": "https://github.com/NLCaceres/WorkIt-iOS"
     }
-  },
-  "Small-projects": {
-    "ui-kit-dynamics ": {
-      "name": "Playing with UI-Kit",
-      "desc": "The remaining apps showcase my simple attempts in several iOS focused classes to incorporate various libraries from Apple and Facebook. In this particular example, we were actually instructed to create a small app that would create balls to bounce across the screen, interacting with each other thanks to UI-Kit and its physics that you can apply",
-      "image": {
-        "src": "./beach.jpeg",
-        "alt": "Home screen with a simple button to make more circles (balls) that will float and bounce around the screen."
-      },
+  ],
+  "Small-projects": [
+    {
+      "name": "Playing with UI-Kit iOS",
+      "desc": "The remaining apps showcase my simple attempts in several iOS focused classes to incorporate various libraries from Apple and Facebook. In this particular example, we were instructed to create a small app that would create balls to bounce across the screen, interacting with each other thanks to UI-Kit and the simple physics it provides",
+      "images": [
+        {
+          "src": "./beach.jpeg",
+          "alt": "Home screen with a simple button to make more circles (balls) that will float and bounce around the screen."
+        }
+      ],
       "github": "github-url"
     },
-    "secure-keychain": {
-      "name": "Keeping data secured ...as long as the bugs don't leak them.",
-      "desc": "On the other hand, this was one of my last projects that featured Objective-C, and would have been a fun example of keychain, using internal passwords or fingerprints securely. Unfortunately, keychain was horribly bugged at the time and required at least a few workarounds to get it to properly work. After searching tirelessly to find some way to make keychain work as intended and laid out by Apple's documents, I found several suggestions on StackOverflow and various sites online on what to change to enable keychain. Finally a user could write notes that were secure from any prying eyes.",
-      "image": {
-        "src": "./beach.jpeg",
-        "alt": "Home screen displaying a login screen and asking to gather a password from the user to login to see a series of user-specific notes"
-      },
+    {
+      "name": "Keeping data secured ...as long as the bugs don't leak them. iOS",
+      "desc": "This was one of my last projects that used Objective-C, and would have been a fun example of keychain, using internal passwords or fingerprints securely. Unfortunately, keychain was horribly bugged at the time and required at least a few workarounds to get it to properly work. After searching tirelessly to find some way to make keychain work as intended and expected based on Apple's documents, I found several suggestions on StackOverflow and various sites online on what to change to enable keychain. Thankfully the workaround I found temporarily fixed keychain for me and finally a user could write notes that were secure from any prying eyes.",
+      "images": [
+        {
+          "src": "./beach.jpeg",
+          "alt": "Home screen displaying a login screen and asking to gather a password from the user to login to see a series of user-specific notes"
+        }
+      ],
       "github": "github-url"
     },
-    "background-downloader": {
-      "name": "Keeping things flowing with background downloading",
-      "desc": "This project was built to not only work with a REST API, but to also create a table view of the objects that would load sequentially. Using Grand Central Dispatch and Apple's Queues, the project would load the objects in order, and slide each one into the table.",
-      "image": {
-        "src": "./beach.jpeg",
-        "alt": "Home screen displaying"
-      },
+    {
+      "name": "Keeping things flowing with background downloading iOS",
+      "desc": "This project was built to not only to practice working with a REST API asynchronously, but also to see how tableViews could be further customized, loading each object in series. Using Grand Central Dispatch to create queues and handle threads, the project would make GET requests, parse the response, and slide each object as a cell into the table.",
+      "images": [
+        {
+          "src": "./beach.jpeg",
+          "alt": "Home screen displaying"
+        }
+      ],
       "github": "github-url"
     },
-    "rest-project": {
-      "name": "Keeping data secured ...as long as the bugs don't leak them.",
-      "desc": "This was one of my last projects that featured Objective-C, and would have been a fun example of keychain, using internal passwords or fingerprints securely. Unfortunately, keychain was horribly bugged at the time and required at least a few workarounds to get it to properly work. After searching tirelessly to find some way to make keychain work as intended and laid out by Apple's documents, I found several suggestions on StackOverflow and various sites online on what to change to enable keychain. Finally a user could write notes that were secure from any prying eyes.",
-      "image": {
-        "src": "./beach.jpeg",
-        "alt": "Home screen displaying a login screen and asking to gather a password from the user to login to see a series of user-specific notes"
-      },
+    {
+      "name": "Remembering my contacts with help from CoreData iOS",
+      "desc": "In this app, I took my first steps in learning Swift. Incorporating Apple's CoreData for data persistance, a user could save contacts locally, keeping things simple without a database.",
+      "images": [
+        {
+          "src": "./beach.jpeg",
+          "alt": "Home screen displaying a table view of the contacts contained and saved within the app."
+        }
+      ],
       "github": "github-url"
     },
-    "phonebook-manager": {
-      "name": "Remembering my contacts with help from CoreData",
-      "desc": "In this app, I took my first steps in learning Swift and incorporated CoreData as provided by Apple to create a series of managed objects that would represent my contacts. This would help to maintain important data that doesn't need to be stored in a database, so we always have it quickly available to us.",
-      "image": {
-        "src": "./beach.jpeg",
-        "alt": "Home screen displaying a table view of the contacts contained and saved within the app."
-      },
-      "github": "github-url"
-    },
-    "facebook-sdk": {
-      "name": "Playing with the Facebook SDK",
-      "desc": "In this particular case, I wanted to incorporate the Facebook SDK to allow users to log in, and friends to be see to each other.",
-      "image": {
-        "src": "./beach.jpeg",
-        "alt": "Home screen displaying the login. Once logged in, login-screen will no longer be seen until log-out."
-      },
+    {
+      "name": "Playing with the Facebook SDK iOS",
+      "desc": "With this particular mini-app, we were given free reign to incorporate a 3rd-party library, so I chose Facebook given its popularity at the time. Keeping things simple, I wanted to incorporate the Facebook SDK to allow users to log into the app, gaining the ability for friends to be see to each other.",
+      "images": [
+        {
+          "src": "./beach.jpeg",
+          "alt": "Home screen displaying the login. Once logged in, login-screen will no longer be seen until log-out."
+        }
+      ],
       "github": "github-url"
     }
-  }
+  ]
 }

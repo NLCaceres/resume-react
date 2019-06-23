@@ -1,6 +1,13 @@
 import React, { Component } from "react";
-import { Carousel, CarouselItem, CarouselCaption } from "reactstrap";
+import {
+  Carousel,
+  CarouselItem,
+  CarouselCaption,
+  CarouselIndicators
+} from "reactstrap";
 import carousel from "./Carousel.module.css";
+import cnames from "classnames";
+const util = require("util");
 
 // Reactstrap carousel requires image array
 // 3 props two required
@@ -8,7 +15,7 @@ import carousel from "./Carousel.module.css";
 // Don't forget key with array list of items in react (so img src)
 let images = [];
 
-class SimpleAutoCarousel extends Component {
+class SimpleCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +23,7 @@ class SimpleAutoCarousel extends Component {
     };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
   }
 
   // Required prop and gets the animated started
@@ -37,13 +45,31 @@ class SimpleAutoCarousel extends Component {
     this.setState({ activeIndex: nextIndex });
   }
 
+  goToIndex(newIndex) {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
+  }
+
   render() {
     const { activeIndex } = this.state;
-
-    const slides = images.map(image => {
+    const projectImgs = this.props.images;
+    // console.log("Here are the carousel images");
+    // console.log(util.inspect(projectImgs, false, null, true));
+    console.log("Current viewWidth: " + this.props.viewWidth);
+    const slides = projectImgs.map(image => {
       return (
-        <CarouselItem className={carousel.slide} key={image.src}>
-          <img src={image.src} alt={image.altText} />
+        <CarouselItem key={image.src}>
+          <img
+            className={cnames(
+              "img-fluid",
+              this.props.viewWidth >= 768
+                ? carousel.slide
+                : carousel.mobileSlide
+            )}
+            src={image.src}
+            alt={image.altText}
+          />
+          <CarouselCaption captionText="" />
         </CarouselItem>
       );
     });
@@ -55,12 +81,18 @@ class SimpleAutoCarousel extends Component {
         previous={this.previous}
         pause={false}
         ride="carousel"
-        interval={3000}
-        className="d-none d-sm-block"
+        interval={false}
+        className={cnames(carousel.full)}
       >
+        <CarouselIndicators
+          items={projectImgs}
+          activeIndex={activeIndex}
+          onClickHandler={this.goToIndex}
+        />
         {slides}
-        <CarouselCaption className="display-1" captionText="Welcome!" />
       </Carousel>
     );
   }
 }
+
+export default SimpleCarousel;

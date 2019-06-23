@@ -48,10 +48,10 @@ class SimpleNavbar extends Component {
 }
 
 const NavContents = props => {
-  if (props.viewWidth < 768) {
-    return (
-      <>
-        <NavbarToggler className="" onClick={props.toggleFunc} />
+  return (
+    <>
+      <NavbarToggler onClick={props.toggleFunc} />
+      {props.viewWidth < 768 ? (
         <MobileNav
           isOpened={props.isOpened}
           openTab={props.openTab}
@@ -59,21 +59,16 @@ const NavContents = props => {
           viewWidth={props.viewWidth}
           collapseNav={props.toggleFunc}
         />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <NavbarToggler onClick={props.toggleFunc} />
+      ) : (
         <FullNav
           isOpened={props.isOpened}
           openTab={props.openTab}
           activeTab={props.activeTab}
           viewWidth={props.viewWidth}
         />
-      </>
-    );
-  }
+      )}
+    </>
+  );
 };
 
 const MobileNav = props => {

@@ -5,6 +5,9 @@ may be helpful at 250px instead */
   max-height: 350px;
   min-width: 100%;
 }
+img:hover.clickable {
+  filter: brightness(50%);
+}
 
 .buttonLink {
   background-color: purple !important;

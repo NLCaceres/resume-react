@@ -1,6 +1,5 @@
 // This is a component to create a series of posts
-// They will start on the left side and alternate
-// May be refactored with left versus right start
+// They will start on the left side and alternate (May refactor for right start as option)
 import React, { Component } from "react";
 import {
   Row,
@@ -11,27 +10,45 @@ import {
   CardTitle,
   Button
 } from "reactstrap";
+import SimpleCarousel from "../SimpleCarousel/SimpleCarousel";
+import CardImageModal from "../CardImageModal/CardImageModal";
 import cnames from "classnames";
 import postlist from "./PostList.module.css";
-import iOSProjects from "../TabPanelData/iOSProjects.json";
+import iOSProjects from "../TabPanelData/iOSProjects.json"; // Imports are static so you have to list contents one by one
 import androidProjects from "../TabPanelData/Android.json";
 import frontEndProjects from "../TabPanelData/Front-End-Web.json";
 import backEndProjects from "../TabPanelData/Back-End-Web.json";
-// This is required because during compile time
-// webpack doesn't know the exact module
-// since we are dynamically computing it
-const tabData = require.context("../TabPanelData");
-const images = require.context("../images");
+const util = require("util"); // Helps debug JS objects
 
-// FUTURE INSTALL FOR UNIQUE KEYS
-// NANO ID!!! DUHHH!!!!
+// FUTURE INSTALL FOR UNIQUE KEYS - Nano-ID
 
 class PostListView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: window.innerWidth
+      width: window.innerWidth,
+      modal: false,
+      modalProject: null
     };
+
+    this.openModal = this.openModal.bind(this);
+  }
+
+  openModal(project) {
+    if (project === null) {
+      this.setState(prevState => ({
+        modal: !prevState.modal
+      }));
+    } else {
+      if (this.props.viewWidth < 768) {
+        // Prevent modal from appearing
+        return;
+      }
+      this.setState(prevState => ({
+        modal: !prevState.modal,
+        modalProject: project
+      }));
+    }
   }
 
   render() {
@@ -41,15 +58,22 @@ class PostListView extends Component {
         <ProjectList
           tabId={this.props.tabId}
           viewWidth={this.props.viewWidth}
+          modalControl={this.openModal}
         />
+        {this.props.viewWidth >= 768 && (
+          <CardImageModal
+            modalControl={this.openModal}
+            isModalOpen={this.state.modal}
+            project={this.state.modalProject}
+            viewWidth={this.props.viewWidth}
+          />
+        )}
       </div>
     );
   }
 }
 
 const ProjectList = props => {
-  console.log("This is the context of tab data: ");
-  console.log(tabData.keys());
   let currentTab;
   if (props.tabId === "iOS") {
     currentTab = iOSProjects;
@@ -61,24 +85,25 @@ const ProjectList = props => {
     currentTab = backEndProjects;
   }
 
-  // For future reference, an npm package
-  // such as nanoid, shortid, uuid, etc.
-  // cam help with keys for lists or ids for forms
+  // For future reference, can use nanoid, shortid, uuid from npm for keys on lists or id on forms
   // Otherwise using other props is helpful as a key
   let projectTypes = Object.keys(currentTab);
   return projectTypes.map((projectType, i) => {
+    // Fancy way to convert json hyphenated names to pretty names
     const projectTypeNoHyphen = projectType.replace(/-/g, " ");
     const properProjectType = projectTypeNoHyphen.replace(/\b\w/g, str =>
       str.toUpperCase()
     );
+    console.log("This is project type and a key: " + projectType);
+    const projectSectionKey = props.tabId + " " + projectType;
+    const projects = currentTab[projectType];
     return (
-      <div key={projectType}>
+      <div key={projectSectionKey}>
         <h1>{properProjectType}</h1>
         <ProjectSection
-          type={projectType}
-          index={i}
-          tab={currentTab}
+          projects={projects}
           viewWidth={props.viewWidth}
+          modalControl={props.modalControl}
         />
       </div>
     );
@@ -86,106 +111,127 @@ const ProjectList = props => {
 };
 
 const ProjectSection = props => {
-  const projects = props.tab[props.type];
+  const projects = props.projects;
+  console.log(
+    "These projects were passed: " + util.inspect(projects, false, null, true)
+  );
   const projectKeys = Object.keys(projects);
-  return projectKeys.map((project, i) => {
-    if (i % 2 === 0) {
+  console.log("With these keys: " + projectKeys);
+  return projects.map((project, i) => {
+    console.log("This is the project name: " + project.name);
+    console.log("This is the project info: " + project);
+    if (i % 2 === 0 || props.viewWidth < 768) {
       return (
-        <CardPost
-          key={project}
-          project={projects[project]}
-          side="left"
-          width={props.viewWidth}
+        <LeftSidedCardPost
+          project={project}
+          modalControl={props.modalControl}
+          viewWidth={props.viewWidth}
+          key={project.name}
         />
       );
     } else {
       return (
-        <CardPost
-          key={project}
-          project={projects[project]}
-          side="right"
-          width={props.viewWidth}
+        <RightSidedCardPost
+          project={project}
+          modalControl={props.modalControl}
+          viewWidth={props.viewWidth}
+          key={project.name}
         />
       );
     }
   });
 };
 
-const CardPost = props => {
-  if (props.side === "left" || props.width < 768) {
-    return <LeftSidedCardPost project={props.project} />;
-  } else if (props.side === "right") {
-    return <RightSidedCardPost project={props.project} />;
-  }
-};
-
 const LeftSidedCardPost = props => {
   const project = props.project;
-  console.log("This is the context of images: ");
-  console.log(images.keys());
-  const image = project["image"]["src"];
+  const imageSrc = project["images"]["0"]["src"];
+  const imageAlt = project["images"]["0"]["alt"];
   return (
-    <Card>
-      <Row noGutters>
-        <Col xs="12" md="3" className="d-flex justify-content-center">
-          <img
-            className={cnames("img-fluid", postlist.cardImg)}
-            src={image}
-            alt={project["image"]["alt"]}
-            onError={e => {
-              e.target.onerror = null;
-              e.target.src = "https://via.placeholder.com/350.png?text=Project";
-            }}
-          />
-        </Col>
-        <Col xs="12" md="9">
-          <CardBody>
-            <CardTitle>{project["name"]}</CardTitle>
-            <CardText>{project["desc"]}</CardText>
-            <Button
-              className={cnames(postlist.buttonLink, "font-weight-bold")}
-              href={project["github"]}
-            >
-              Github Page
-            </Button>
-          </CardBody>
-        </Col>
-      </Row>
-    </Card>
+    <>
+      <Card>
+        <Row noGutters>
+          <Col xs="12" md="2" className="d-flex justify-content-center">
+            {props.viewWidth >= 768 || project["images"].length <= 1 ? (
+              <img
+                className={cnames("img-fluid", postlist.cardImg, {
+                  [postlist.clickable]: props.viewWidth >= 992
+                })}
+                src={imageSrc}
+                alt={imageAlt}
+                onClick={() => {
+                  props.modalControl(project);
+                }}
+                onError={e => {
+                  e.target.onerror = null;
+                  e.target.src =
+                    "https://via.placeholder.com/350.png?text=Project";
+                }}
+              />
+            ) : (
+              <SimpleCarousel
+                images={project["images"]}
+                viewWidth={props.viewWidth}
+              />
+            )}
+          </Col>
+          <Col xs="12" md="10">
+            <CardBody>
+              <CardTitle>{project["name"]}</CardTitle>
+              <CardText>{project["desc"]}</CardText>
+              <Button
+                className={cnames(postlist.buttonLink, "font-weight-bold")}
+                href={project["github"]}
+              >
+                Github Page
+              </Button>
+            </CardBody>
+          </Col>
+        </Row>
+      </Card>
+    </>
   );
 };
 
 const RightSidedCardPost = props => {
   const project = props.project;
-  const image = project["image"]["src"];
+  const imageSrc = project["images"]["0"]["src"];
+  const imageAlt = project["images"]["0"]["alt"];
   return (
-    <Card>
-      <Row noGutters>
-        <Col xs="12" md="9">
-          <CardBody>
-            <CardTitle>{project["name"]}</CardTitle>
-            <CardText>{project["desc"]}</CardText>
-            <Button
-              className={cnames(postlist.buttonLink, "font-weight-bold")}
-              href={project["github"]}
-            >
-              Github Page
-            </Button>
-          </CardBody>
-        </Col>
-        <Col xs="12" md="3">
-          <img
-            className={cnames("img-fluid", postlist.cardImg)}
-            src={image}
-            alt={project["image"]["alt"]}
-            onError={e => {
-              e.target.onerror = null;
-              e.target.src = "https://via.placeholder.com/350.png?text=Project";
-            }}
-          />
-        </Col>
-      </Row>
-    </Card>
+    <>
+      <Card>
+        <Row noGutters>
+          <Col xs="12" md="10">
+            <CardBody>
+              <CardTitle>{project["name"]}</CardTitle>
+              <CardText>{project["desc"]}</CardText>
+              <Button
+                className={cnames(postlist.buttonLink, "font-weight-bold")}
+                href={project["github"]}
+              >
+                Github Page
+              </Button>
+            </CardBody>
+          </Col>
+          <Col xs="12" md="2">
+            <img
+              className={cnames("img-fluid", postlist.cardImg, {
+                [postlist.clickable]: props.viewWidth >= 768
+              })}
+              src={imageSrc}
+              alt={imageAlt}
+              onClick={() => {
+                props.modalControl(project);
+              }}
+              onError={e => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://via.placeholder.com/350.png?text=Project";
+              }}
+            />
+          </Col>
+        </Row>
+      </Card>
+    </>
   );
 };
 
