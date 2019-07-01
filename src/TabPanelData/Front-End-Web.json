@@ -5,14 +5,19 @@
       "desc": "Originally an idea of my father's, I began this app to help solve an issue of data collection and data visualization for his department, Infection Control, at work. However, as I worked out the details with him, it became more apparent how helpful this app could be for not only his own hospital but in general. In his experience, hospitals often lag behind in terms of technology, despite being able to benefit immensely from the revolution data collection and computeres can bring.",
       "images": [
         {
-          "src": "../images/beach.jpeg",
-          "alt": "Home screen with several buttons to point users to various data points"
+          "src": "https://imgur.com/9GIdK1H.png",
+          "alt": "The left side has a filter and the right side a list of professions."
+        },
+        {
+          "src": "https://imgur.com/7XXbsi6.png",
+          "alt": "The add screen for new profession titles."
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/ng-records",
+      "url": "https://fathomless-atoll-23643.herokuapp.com/"
     },
     {
-      "name": "Work-it Front-end",
+      "name": "This Portfolio Site!",
       "desc": "One of my first major iOS projects. The idea came from conversations with my best friend about an all encompassing fitness and health app. There are plenty of apps that cover nutrition, and plenty that cover exercise, but we wanted an app that would fit it all in one clean space.",
       "images": [
         {
@@ -20,64 +25,118 @@
           "alt": "Home screen displaying "
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/resume-react",
+      "url": "https://nlcaceres.github.io/resume-react/"
+    },
+    {
+      "name": "Car Lords - The New Car Site to Compete and Beat the Rest",
+      "desc": "In this particular case, I wanted to incorporate the Facebook SDK to allow users to log in, and friends to be see to each other.",
+      "images": [
+        {
+          "src": "https://imgur.com/JP9uLEW.png",
+          "alt": "For smaller mobile devices, this is the homepage. A navbar, 3 dropdown menus, and footer"
+        },
+        {
+          "src": "https://imgur.com/9jcB7k9.png",
+          "alt": "For tablet and wider screens, this is the homepage. An expanded navbar, 3 dropdown menus and a full footer"
+        }
+      ],
+      "github": "https://github.com/NLCaceres/carSearch-Site",
+      "url": "https://nlcaceres.github.io/carSearch-Site/"
     }
   ],
   "Small-projects": [
     {
-      "name": "Playing with UI-Kit Front-end",
-      "desc": "The remaining apps showcase my simple attempts in several iOS focused classes to incorporate various libraries from Apple and Facebook. In this particular example, we were actually instructed to create a small app that would create balls to bounce across the screen, interacting with each other thanks to UI-Kit and its physics that you can apply",
+      "name": "The Walking Dead Fansite",
+      "desc": "My first official attempt at anything related to Web Development and the Front-End. In my USC class ITP 301, we were instructed to create a fansite for one of our favorite TV shows. At the time, the Walking Dead was probably at its highest viewership with the shock of the season 7 opening and 6 excellent seasons prior. In my little project, I'd create a simple html file with simple css talking about main characters and the first 5 seasons.",
       "images": [
         {
-          "src": "../images/beach.jpeg",
-          "alt": "Home screen with a simple button to make more circles (balls) that will float and bounce around the screen."
+          "src": "https://i.imgur.com/92xr3mE.png",
+          "alt": "Walking Dead Fan Site with descriptions of seasons 1 through 5 as well as several main character descriptions"
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/WD-show-fanpage",
+      "url": "https://nlcaceres.github.io/WD-show-fanpage/"
     },
     {
-      "name": "Keeping data secured ...as long as the bugs don't leak them. Front-end",
-      "desc": "On the other hand, this was one of my last projects that featured Objective-C, and would have been a fun example of keychain, using internal passwords or fingerprints securely. Unfortunately, keychain was horribly bugged at the time and required at least a few workarounds to get it to properly work. After searching tirelessly to find some way to make keychain work as intended and laid out by Apple's documents, I found several suggestions on StackOverflow and various sites online on what to change to enable keychain. Finally a user could write notes that were secure from any prying eyes.",
+      "name": "My Girlfriend and I's Photo Gallery",
+      "desc": "As a part of the second assignment for my ITP 301 class, we made a point of overviewing jQuery for a couple weeks which culminated in this project, a simple gallery using jQuery to highlight images and swap in any one that was clicked into a main image frame.",
       "images": [
         {
-          "src": "../images/beach.jpeg",
-          "alt": "Home screen displaying a login screen and asking to gather a password from the user to login to see a series of user-specific notes"
+          "src": "https://i.imgur.com/wDMkYkJ.png",
+          "alt": "Column of photos along the left side with a main image on the right"
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/jQuery-gallery",
+      "url": "https://nlcaceres.github.io/jQuery-gallery/"
     },
     {
-      "name": "Keeping things flowing with background downloading Front-end",
-      "desc": "This project was built to not only work with a REST API, but to also create a table view of the objects that would load sequentially. Using Grand Central Dispatch and Apple's Queues, the project would load the objects in order, and slide each one into the table.",
+      "name": "Color my Life",
+      "desc": "In the third assignment for ITP 301, the task was even more simple than the previous one, namely create a page that describes your life in a nutshell AND javascript that will modify the CSS of various parts of the page. Using radio buttons and a pair of JS functions, a user can easily swap out the background to whatever basic colors they want and to a font color they'd prefer.",
       "images": [
         {
-          "src": "../images/beach.jpeg",
-          "alt": "Home screen displaying"
+          "src": "https://i.imgur.com/6lRZSbd.png",
+          "alt": "Two columns of radio buttons relating to background and text color with a main image sitting alongside paragraphs about my life and school."
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/js-color-control",
+      "url": "https://nlcaceres.github.io/js-color-control/"
     },
     {
-      "name": "Remembering my contacts with help from CoreData Front-end",
-      "desc": "In this app, I took my first steps in learning Swift and incorporated CoreData as provided by Apple to create a series of managed objects that would represent my contacts. This would help to maintain important data that doesn't need to be stored in a database, so we always have it quickly available to us.",
+      "name": "Need a Calculator?",
+      "desc": "Getting into the groove of my first Web Development class, we finally got into a project that was a bit more practical and useful, a calculator! Picking out a few images for calculator buttons and laying them out as expected for a calculator, I added onClick attributes to each button which would add numbers to the text input sitting atop. As the user clicks the operators along the side, the number will disappear in the text field and allow the next number to be input until you finally click the equals sign and get your result. Simple and plenty useful!",
       "images": [
         {
-          "src": "../images/beach.jpeg",
-          "alt": "Home screen displaying a table view of the contacts contained and saved within the app."
+          "src": "https://imgur.com/FduCCFf.png",
+          "alt": "Basic calculator with red buttons and a text input sitting atop it for numbers"
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/calculator-webApp",
+      "url": "https://nlcaceres.github.io/calculator-webApp/"
     },
     {
-      "name": "Playing with the Facebook SDK Front-end",
-      "desc": "In this particular case, I wanted to incorporate the Facebook SDK to allow users to log in, and friends to be see to each other.",
+      "name": "The New and Improved Photo Gallery",
+      "desc": "Improving upon the previous jQuery gallery my ITP 301 class had made, I'd change the layout adding more images, focus it around my girlfriend and I's Walt Disney World trip, and use vanilla Javascript alone. The main image frame and row images would function similarly, highlighting onHover, swapping onClick, but I'd include a row of random images underneath the main image and above the gallery of images. With the row of random images, I included a random button that would choose a set of three images to display (though it could choose two of the same). Not perfect, but a good step towards a fully fledged project and one heck of a road trip!",
       "images": [
         {
-          "src": "../images/beach.jpeg",
+          "src": "https://imgur.com/XVzYyDm.png",
           "alt": "Home screen displaying the login. Once logged in, login-screen will no longer be seen until log-out."
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/js-gallery",
+      "url": "https://nlcaceres.github.io/js-gallery/"
+    },
+    {
+      "name": "These are a Few of My Favorite Sites",
+      "desc": "In order to practice HTML manipulation and get a feel for the power Javascript had over the Document Object Model, my class would make one of its last projects, a search bar scanning through a few arrays with website names and keywords related to those websites.",
+      "images": [
+        {
+          "src": "https://imgur.com/XJX7BSA.png",
+          "alt": "Home screen displaying the login. Once logged in, login-screen will no longer be seen until log-out."
+        }
+      ],
+      "github": "https://github.com/NLCaceres/bookmark-search",
+      "url": "https://nlcaceres.github.io/bookmark-search/"
+    },
+    {
+      "name": "The Group Project - Flip through a Fun Van Gogh Flipbook",
+      "desc": "As my semester came to a close in ITP 301 Intro to Web Dev, my professor was sure to incorporate a group project into the class, pairing Computer Science Majors with Computer Science Minors. Having the minor under my belt, I paired with a classmate, Duncan, a CS Major. Though our schedules didn't ever seem to fit, this was the perfect opportunity to make use of Github. With Github on our side, we were able to divide and conquer fairly quickly. Unfortunately our merge conflicts made things difficult as our presentations finally arrived, but we fixed them in record time and had a presentable flipbook for all to enjoy.",
+      "images": [
+        {
+          "src": "https://i.imgur.com/kfmVnZw.png",
+          "alt": "Cover Page of Van Gogh Web Flipbook"
+        },
+        {
+          "src": "https://i.imgur.com/GYvfv5w.png",
+          "alt": "Two Pages on Screen"
+        },
+        {
+          "src": "https://i.imgur.com/4NR5Jr9.png",
+          "alt": "Actual Page taking up half of screen"
+        }
+      ],
+      "github": "https://github.com/NLCaceres/itp301-group-project",
+      "url": "https://nlcaceres.github.io/itp301-group-project/"
     }
   ]
 }

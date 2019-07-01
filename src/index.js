@@ -56,7 +56,7 @@ class App extends Component {
           activeTab={this.state.activeTab}
           viewWidth={this.state.width}
         />
-        <TabContent activeTab={this.state.activeTab}>
+        <TabContent activeTab={this.state.activeTab} className="mx-3">
           <TabPane tabId="iOS">
             <PostListView tabId="iOS" viewWidth={this.state.width} />
           </TabPane>

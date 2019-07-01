@@ -9,6 +9,10 @@ img:hover.clickable {
   filter: brightness(50%);
 }
 
-.buttonLink {
+.githubLink {
   background-color: purple !important;
+}
+
+.blockButton {
+  max-width: 125px;
 }

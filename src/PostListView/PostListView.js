@@ -179,11 +179,29 @@ const LeftSidedCardPost = props => {
               <CardTitle>{project["name"]}</CardTitle>
               <CardText>{project["desc"]}</CardText>
               <Button
-                className={cnames(postlist.buttonLink, "font-weight-bold")}
+                className={cnames(
+                  postlist.githubLink,
+                  postlist.blockButton,
+                  "font-weight-bold",
+                  { "d-block": props.viewWidth >= 992 }
+                )}
                 href={project["github"]}
               >
                 Github Page
               </Button>
+              {project["url"] != null && (
+                <Button
+                  className={cnames(
+                    postlist.blockButton,
+                    "font-weight-bold btn-danger",
+                    { "ml-4": props.viewWidth < 992 },
+                    { "d-block mt-4": props.viewWidth >= 992 }
+                  )}
+                  href={project["url"]}
+                >
+                  Home Page
+                </Button>
+              )}
             </CardBody>
           </Col>
         </Row>
@@ -205,11 +223,29 @@ const RightSidedCardPost = props => {
               <CardTitle>{project["name"]}</CardTitle>
               <CardText>{project["desc"]}</CardText>
               <Button
-                className={cnames(postlist.buttonLink, "font-weight-bold")}
+                className={cnames(
+                  postlist.githubLink,
+                  postlist.blockButton,
+                  "font-weight-bold",
+                  { "d-block": props.viewWidth >= 992 }
+                )}
                 href={project["github"]}
               >
                 Github Page
               </Button>
+              {project["url"] != null && (
+                <Button
+                  className={cnames(
+                    postlist.blockButton,
+                    "font-weight-bold btn-danger",
+                    { "ml-4": props.viewWidth < 992 },
+                    { "d-block mt-4": props.viewWidth >= 992 }
+                  )}
+                  href={project["url"]}
+                >
+                  Home Page
+                </Button>
+              )}
             </CardBody>
           </Col>
           <Col xs="12" md="2">

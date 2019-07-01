@@ -28,9 +28,9 @@ class SimpleNavbar extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Navbar
-          className={cnames(navbar.header, "fixed-top")}
+          className={cnames(navbar.header, "sticky-top")}
           light
           expand="md"
         >
@@ -42,7 +42,7 @@ class SimpleNavbar extends Component {
             viewWidth={this.props.viewWidth}
           />
         </Navbar>
-      </div>
+      </>
     );
   }
 }
