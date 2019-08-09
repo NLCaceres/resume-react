@@ -184,8 +184,16 @@
       "desc": "The remaining apps showcase my simple attempts in several iOS focused classes to incorporate various libraries from Apple and Facebook. In this particular example, we were instructed to create a small app that would create balls to bounce across the screen, interacting with each other thanks to UI-Kit and the simple physics it provides",
       "images": [
         {
-          "src": "./beach.jpeg",
-          "alt": "Home screen with a simple button to make more circles (balls) that will float and bounce around the screen."
+          "src": "https://imgur.com/fwqrd40.png",
+          "alt": "Home screen with a simple button to make more circles (balls) that will bounce around the screen. Two are bouncing."
+        },
+        {
+          "src": "https://imgur.com/KsMIMb5.png",
+          "alt": "Home screen with circular views resting on the bottom of the screen."
+        },
+        {
+          "src": "https://imgur.com/iWoBJ1C.png",
+          "alt": "Home screen with a new circular view dropping down."
         }
       ],
       "github": "github-url"
