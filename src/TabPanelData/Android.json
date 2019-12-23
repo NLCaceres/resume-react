@@ -5,33 +5,108 @@
       "desc": "This was the first major app I wrote in Android. In the class that first taught me Android development, we were asked to create an app that would help those in their day-to-day lives whether that was an acessibility issue, a handicap, or simply a health-related concern. Being a Biology major focused in Neuroscience, I immediately thought about the issue of mental illness. I hoped to create an app that would help users to be able to voice their concerns about their mental well-being if they felt they could not do so. Ideally I could create a chat system, map out local mental health professionals, display helpful articles and create a simple login. The biggest concern, and ultimately the task I could not complete, was the chat system. I had hoped to create a system that would connect users who felt they could help in certain topics whether relationships, depression, or simply daily troubles with users who were having trouble in these topics. Though the system was established programmatically with Firebase (just before Google acquired it), it didn't function as intended. Consequently, the remainder was fleshed out as best as possible within the time frame, and the chat system was kept basic. Despite my shortcomings, it taught me a number of important lessons from project management, laying out tasks, and interacting with a number of different technologies.",
       "images": [
         {
-          "src": "https://i.imgur.com/r4lJY2P.png",
-          "alt": "Home screen with a tab view to each section of the app, namely the chat, the articles and the healthcare providers."
+          "src": "https://imgur.com/XKgaDH5.png",
+          "alt": "Home screen featuring your positive notes!"
+        },
+        {
+          "src": "https://imgur.com/YAbsuHP.png",
+          "alt": "Login screen with one for generic email and one for Gmail"
+        },
+        {
+          "src": "https://imgur.com/uLYXpXd.png",
+          "alt": "App asking for permission to use location services."
+        },
+        {
+          "src": "https://imgur.com/yA2gVU1.png",
+          "alt": "Profile screen with photo, privacy buttons, and user information"
+        },
+        {
+          "src": "https://imgur.com/aCtqJFC.png",
+          "alt": "User settings to change user email, username, and user password in addition to more personal settings"
+        },
+        {
+          "src": "https://imgur.com/J7pUbgG.png",
+          "alt": "User settings with focused edit text that enables a confirmation button"
+        },
+        {
+          "src": "https://imgur.com/kuo98Ul.png",
+          "alt": "List of chats with recent users you've interacted with"
+        },
+        {
+          "src": "https://imgur.com/5R7MXkZ.png",
+          "alt": "Tab with mental health facility locator included"
+        },
+        {
+          "src": "https://imgur.com/VZHPgiF.png",
+          "alt": "Tab with several links and notes on mental health and the various ways it can appear"
+        },
+        {
+          "src": "https://imgur.com/tooULz0.png",
+          "alt": "After clicking the link, you are taken to one of several websites to inform and educate about the particular topic"
+        },
+        {
+          "src": "https://imgur.com/UDx7iVC.png",
+          "alt": "Find a new user to chat with screen"
+        },
+        {
+          "src": "https://imgur.com/QA8GYw1.png",
+          "alt": "Chat messages between two users"
+        },
+        {
+          "src": "https://imgur.com/GH3OfMT.png",
+          "alt": "Action bar appearing upon highlighting user messages with options to favorite and delete"
+        },
+        {
+          "src": "https://imgur.com/tzz6rJz.png",
+          "alt": "Messages after favoriting"
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/Positive-note"
     },
     {
       "name": "Infection Control Android",
       "desc": "This app started in Android before moving more recently into iOS. Originally an idea of my father's, I began this app to help solve an issue of data collection and data visualization for his department, Infection Control, at work. However, as I worked out the details with him, it became more apparent how helpful this app could be for not only his own hospital but for hospitals in general. In his experience, hospitals often lag behind in terms of technology, despite being able to benefit immensely from the revolution data collection and computeres can bring.",
       "images": [
         {
-          "src": "../images/beach.jpeg",
-          "alt": "Home screen with several buttons to point users to various data points"
+          "src": "https://imgur.com/ZhbHdsA.png",
+          "alt": "Home screen with several buttons to create different report types"
+        },
+        {
+          "src": "https://imgur.com/QbGgklU.png",
+          "alt": "Home screen with slid over buttons"
+        },
+        {
+          "src": "https://imgur.com/iw7hEpa.png",
+          "alt": "Create new report screen with options for employee, type, and more"
+        },
+        {
+          "src": "https://imgur.com/t3MxgkK.png",
+          "alt": "List of recent reports"
+        },
+        {
+          "src": "https://imgur.com/fDgNaC0.png",
+          "alt": "Report list filtered by search term"
+        },
+        {
+          "src": "https://imgur.com/QCRSJi8.png",
+          "alt": "List of different options to filter the reports results"
+        },
+        {
+          "src": "https://imgur.com/gOVeWYD.png",
+          "alt": "Expanded list of filter options for reports"
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/Android-Records"
     },
     {
       "name": "Work-it Android",
       "desc": "Ever since I started learning iOS, I hoped to be able to duplicate my projects in Android. Eventually, I would be able to take a class focused on Android and use the knowledge that came from learning iOS to move more smoothly into Android. As stated in my iOS section, the idea for this app came from conversations with my best friend about an all encompassing fitness and health app. There are plenty of apps that cover nutrition, and plenty that cover exercise, but we wanted an app that would fit it all in one clean space.",
-      "images": [
-        {
-          "src": "../images/beach.jpeg",
-          "alt": "Home screen displaying "
-        }
-      ],
-      "github": "github-url"
+      "images": [],
+      "github": "https://github.com/NLCaceres/WorkIt-Android"
+    },
+    {
+      "name": "Test Takin' 'n Ace'n'",
+      "desc": "A fairly simple idea given to me by my dad and a few friends with the goal of helping people to study, ace that exam, and keep doing so"
     }
   ],
   "Small-projects": [

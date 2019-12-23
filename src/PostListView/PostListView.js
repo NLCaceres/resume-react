@@ -144,8 +144,14 @@ const ProjectSection = props => {
 
 const LeftSidedCardPost = props => {
   const project = props.project;
-  const imageSrc = project["images"]["0"]["src"];
-  const imageAlt = project["images"]["0"]["alt"];
+  const imageSrc =
+    "images" in project && project["images"].length > 0
+      ? project["images"]["0"]["src"]
+      : "No img";
+  const imageAlt =
+    "images" in project && project["images"].length > 0
+      ? project["images"]["0"]["alt"]
+      : "Placeholder";
   return (
     <>
       <Card>
@@ -212,8 +218,14 @@ const LeftSidedCardPost = props => {
 
 const RightSidedCardPost = props => {
   const project = props.project;
-  const imageSrc = project["images"]["0"]["src"];
-  const imageAlt = project["images"]["0"]["alt"];
+  const imageSrc =
+    "images" in project && project["images"].length > 0
+      ? project["images"]["0"]["src"]
+      : "No img";
+  const imageAlt =
+    "images" in project && project["images"].length > 0
+      ? project["images"]["0"]["alt"]
+      : "Placeholder";
   return (
     <>
       <Card>
