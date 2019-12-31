@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   NavbarToggler,
   Collapse
 } from "reactstrap";
@@ -109,7 +109,7 @@ const FullNav = props => {
       </Collapse>
       <NavbarBrand
         className={cnames(
-          navbar.brand,
+          navbar.brand, // indicates css class
           "border border-dark rounded thick-full-border",
           "px-3 py-1",
           "font-weight-bold"
@@ -152,24 +152,23 @@ const NavButtons = props => {
   return [...Array(4)].map((_, i) => {
     return (
       <NavItem
-        className="mx-3 mx-md-1 mt-1 px-0"
+        className="mx-3 mx-md-1 mt-1 px-0 border border-dark rounded"
         key={tabNames[Object.keys(tabNames)[i]]}
       >
-        <NavLink
-          href="#"
+        <NavLink // Different than Reactstrap version - doesn't require href
+          //href={`/${Object.keys(tabNames)[i]}`}
+          to={`/${Object.keys(tabNames)[i]}`}
           className={cnames(
-            "d-flex justify-content-center no-wrap",
-            "mx-1",
-            "px-1",
+            "d-flex justify-content-center no-wrap px-2 w-100 h-100",
             {
-              [navbar.navButton]: props.activeTab !== Object.keys(tabNames)[i],
-              [navbar.activeNavButton]:
-                props.activeTab === Object.keys(tabNames)[i],
-              active: props.activeTab === Object.keys(tabNames)[i]
+              //[navbar.navButton]: props.activeTab !== Object.keys(tabNames)[i],
+              //[navbar.activeNavButton]: props.activeTab === Object.keys(tabNames)[i],
+              //active: props.activeTab === Object.keys(tabNames)[i]
             }
           )}
+          activeClassName={navbar.activeNavButton}
           onClick={() => {
-            props.openTab(Object.keys(tabNames)[i]);
+            //props.openTab(Object.keys(tabNames)[i]);
             window.scrollTo(0, 0);
             if (props.viewWidth < 768) {
               props.collapseNav();

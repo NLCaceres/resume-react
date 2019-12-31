@@ -1,9 +1,9 @@
 /* If necessary min-height
 may be helpful at 250px instead */
 .cardImg {
-  min-height: 100%;
-  max-height: 350px;
-  min-width: 100%;
+  /*min-height: 100%; */
+  max-height: 400px;
+  max-width: 100%;
 }
 img:hover.clickable {
   filter: brightness(50%);

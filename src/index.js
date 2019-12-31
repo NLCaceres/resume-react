@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SimpleNavBar from "./SimpleNavbar/SimpleNavbar";
 import PostListView from "./PostListView/PostListView.js";
 import { TabContent, TabPane } from "reactstrap";
@@ -13,7 +14,7 @@ class App extends Component {
     super(props);
     this.openTab = this.openTab.bind(this);
     this.state = {
-      activeTab: "iOS",
+      //activeTab: "iOS",
       width: window.innerWidth
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -50,13 +51,30 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <Router>
         <SimpleNavBar
           openTab={this.openTab}
-          activeTab={this.state.activeTab}
+          //activeTab={this.state.activeTab}
           viewWidth={this.state.width}
         />
-        <TabContent activeTab={this.state.activeTab} className="mx-3">
+        <Switch>
+          <Route exact path="/">
+            <h1>Under Construction</h1>
+          </Route>
+          <Route exact path="/iOS">
+            <PostListView tabId="iOS" viewWidth={this.state.width} />
+          </Route>
+          <Route exact path="/android">
+            <PostListView tabId="Android" viewWidth={this.state.width} />
+          </Route>
+          <Route exact path="/front-end">
+            <PostListView tabId="Front-End" viewWidth={this.state.width} />
+          </Route>
+          <Route exact path="/back-end">
+            <PostListView tabId="Back-End" viewWidth={this.state.width} />
+          </Route>
+        </Switch>
+        {/* <TabContent activeTab={this.state.activeTab} className="mx-3">
           <TabPane tabId="iOS">
             <PostListView tabId="iOS" viewWidth={this.state.width} />
           </TabPane>
@@ -69,8 +87,8 @@ class App extends Component {
           <TabPane tabId="back-end">
             <PostListView tabId="Back-End" viewWidth={this.state.width} />
           </TabPane>
-        </TabContent>
-      </>
+        </TabContent> */}
+      </Router>
     );
   }
 }

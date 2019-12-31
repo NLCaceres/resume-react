@@ -52,6 +52,7 @@ class PostListView extends Component {
   }
 
   render() {
+    console.log(`This is the viewWidth = ${this.props.viewWidth}`);
     return (
       <div>
         <h1>{this.props.tabId}</h1>
@@ -156,10 +157,10 @@ const LeftSidedCardPost = props => {
     <>
       <Card>
         <Row noGutters>
-          <Col xs="12" md="2" className="d-flex justify-content-center">
+          <Col xs="12" md="2" className="d-flex">
             {props.viewWidth >= 768 || project["images"].length <= 1 ? (
               <img
-                className={cnames("img-fluid", postlist.cardImg, {
+                className={cnames("align-middle", postlist.cardImg, {
                   [postlist.clickable]: props.viewWidth >= 992
                 })}
                 src={imageSrc}
@@ -171,6 +172,7 @@ const LeftSidedCardPost = props => {
                   e.target.onerror = null;
                   e.target.src =
                     "https://via.placeholder.com/350.png?text=Project";
+                  e.target.style.height = "100%";
                 }}
               />
             ) : (
@@ -182,7 +184,9 @@ const LeftSidedCardPost = props => {
           </Col>
           <Col xs="12" md="10">
             <CardBody>
-              <CardTitle>{project["name"]}</CardTitle>
+              <CardTitle className="font-weight-bold">
+                {project["name"]}
+              </CardTitle>
               <CardText>{project["desc"]}</CardText>
               <Button
                 className={cnames(
@@ -232,7 +236,9 @@ const RightSidedCardPost = props => {
         <Row noGutters>
           <Col xs="12" md="10">
             <CardBody>
-              <CardTitle>{project["name"]}</CardTitle>
+              <CardTitle className="font-weight-bold">
+                {project["name"]}
+              </CardTitle>
               <CardText>{project["desc"]}</CardText>
               <Button
                 className={cnames(
@@ -260,9 +266,9 @@ const RightSidedCardPost = props => {
               )}
             </CardBody>
           </Col>
-          <Col xs="12" md="2">
+          <Col xs="12" md="2" className="d-flex justify-content-center">
             <img
-              className={cnames("img-fluid", postlist.cardImg, {
+              className={cnames("align-middle", postlist.cardImg, {
                 [postlist.clickable]: props.viewWidth >= 768
               })}
               src={imageSrc}
@@ -274,6 +280,7 @@ const RightSidedCardPost = props => {
                 e.target.onerror = null;
                 e.target.src =
                   "https://via.placeholder.com/350.png?text=Project";
+                e.target.style.height = "100%";
               }}
             />
           </Col>
