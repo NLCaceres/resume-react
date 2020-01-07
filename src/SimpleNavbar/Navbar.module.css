@@ -14,6 +14,7 @@
 
 .navButton {
   color: #000;
+  font-weight: 550;
   display: flex;
   justify-content: center; /* horizontal text align */
   align-items: center; /* Vertical text align */
