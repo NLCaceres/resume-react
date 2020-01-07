@@ -5,6 +5,9 @@ may be helpful at 250px instead */
   max-height: 400px;
   max-width: 100%;
 }
+.cardText {
+  white-space: pre-wrap;
+}
 img:hover.clickable {
   filter: brightness(50%);
 }

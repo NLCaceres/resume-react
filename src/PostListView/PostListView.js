@@ -197,7 +197,9 @@ const LeftSidedCardPost = props => {
               <CardTitle className="font-weight-bold">
                 {project["name"]}
               </CardTitle>
-              <CardText>{project["desc"]}</CardText>
+              <CardText className={cnames(postlist.cardText)}>
+                {project["desc"]}
+              </CardText>
               <Button
                 className={cnames(
                   postlist.githubLink,
