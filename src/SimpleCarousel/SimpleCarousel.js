@@ -82,9 +82,10 @@ class SimpleCarousel extends Component {
         pause={false}
         ride="carousel"
         interval={false}
-        className={cnames(carousel.full)}
+        className={cnames(carousel.full, "px-4 mt-3")}
       >
         <CarouselIndicators
+          className="mx-4 mt-3 mb-0"
           items={projectImgs}
           activeIndex={activeIndex}
           onClickHandler={this.goToIndex}

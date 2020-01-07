@@ -152,20 +152,17 @@ const NavButtons = props => {
   return [...Array(4)].map((_, i) => {
     return (
       <NavItem
-        className="mx-3 mx-md-1 mt-1 px-0 border border-dark rounded"
+        className="mx-3 mx-md-1 my-1 border border-dark rounded"
+        style={{ height: 40 + "px" }}
         key={tabNames[Object.keys(tabNames)[i]]}
       >
-        <NavLink // Different than Reactstrap version - doesn't require href
-          //href={`/${Object.keys(tabNames)[i]}`}
+        <NavLink // Different than Reactstrap or reg 'a' tag - doesn't require href attr
           to={`/${Object.keys(tabNames)[i]}`}
-          className={cnames(
-            "d-flex justify-content-center no-wrap px-2 w-100 h-100",
-            {
-              //[navbar.navButton]: props.activeTab !== Object.keys(tabNames)[i],
-              //[navbar.activeNavButton]: props.activeTab === Object.keys(tabNames)[i],
-              //active: props.activeTab === Object.keys(tabNames)[i]
-            }
-          )}
+          className={cnames(navbar.navButton, "text-wrap px-3 w-100 h-100", {
+            //[navbar.navButton]: props.activeTab !== Object.keys(tabNames)[i],
+            //[navbar.activeNavButton]: props.activeTab === Object.keys(tabNames)[i],
+            //active: props.activeTab === Object.keys(tabNames)[i]
+          })}
           activeClassName={navbar.activeNavButton}
           onClick={() => {
             //props.openTab(Object.keys(tabNames)[i]);

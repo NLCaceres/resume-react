@@ -11,8 +11,20 @@
 
 .navButton {
   color: #000;
+  display: flex;
+  justify-content: center; /* horizontal text align */
+  align-items: center; /* Vertical text align */
+}
+
+.navButton:hover {
+  color: red;
+  text-decoration: none;
 }
 
 .activeNavButton {
-  background-color: black !important;
+  background-color: black;
+  color: white;
+}
+.activeNavButton:hover {
+  color: lime;
 }
