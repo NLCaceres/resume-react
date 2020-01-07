@@ -8,6 +8,9 @@
   color: white !important;
   background-color: #000;
 }
+.brand:hover {
+  color: lime;
+}
 
 .navButton {
   color: #000;

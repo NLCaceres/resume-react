@@ -18,6 +18,7 @@ import iOSProjects from "../TabPanelData/iOSProjects.json"; // Imports are stati
 import androidProjects from "../TabPanelData/Android.json";
 import frontEndProjects from "../TabPanelData/Front-End-Web.json";
 import backEndProjects from "../TabPanelData/Back-End-Web.json";
+import aboutMe from "../TabPanelData/About-Me.json";
 const util = require("util"); // Helps debug JS objects
 
 // FUTURE INSTALL FOR UNIQUE KEYS - Nano-ID
@@ -52,15 +53,8 @@ class PostListView extends Component {
   }
 
   render() {
-    console.log(`This is the viewWidth = ${this.props.viewWidth}`);
     return (
       <div>
-        <h1>{this.props.tabId}</h1>
-        <ProjectList
-          tabId={this.props.tabId}
-          viewWidth={this.props.viewWidth}
-          modalControl={this.openModal}
-        />
         {this.props.viewWidth >= 768 && (
           <CardImageModal
             modalControl={this.openModal}
@@ -69,6 +63,12 @@ class PostListView extends Component {
             viewWidth={this.props.viewWidth}
           />
         )}
+        <h1>{this.props.tabId}</h1>
+        <ProjectList
+          tabId={this.props.tabId}
+          viewWidth={this.props.viewWidth}
+          modalControl={this.openModal}
+        />
       </div>
     );
   }
@@ -82,8 +82,10 @@ const ProjectList = props => {
     currentTab = androidProjects;
   } else if (props.tabId === "Front-End") {
     currentTab = frontEndProjects;
-  } else {
+  } else if (props.tabId === "Back-End") {
     currentTab = backEndProjects;
+  } else {
+    currentTab = aboutMe;
   }
 
   // For future reference, can use nanoid, shortid, uuid from npm for keys on lists or id on forms
@@ -95,7 +97,6 @@ const ProjectList = props => {
     const properProjectType = projectTypeNoHyphen.replace(/\b\w/g, str =>
       str.toUpperCase()
     );
-    console.log("This is project type and a key: " + projectType);
     const projectSectionKey = props.tabId + " " + projectType;
     const projects = currentTab[projectType];
     return (
@@ -113,34 +114,38 @@ const ProjectList = props => {
 
 const ProjectSection = props => {
   const projects = props.projects;
-  console.log(
-    "These projects were passed: " + util.inspect(projects, false, null, true)
-  );
-  const projectKeys = Object.keys(projects);
-  console.log("With these keys: " + projectKeys);
-  return projects.map((project, i) => {
-    console.log("This is the project name: " + project.name);
-    console.log("This is the project info: " + project);
-    if (i % 2 === 0 || props.viewWidth < 768) {
-      return (
-        <LeftSidedCardPost
-          project={project}
-          modalControl={props.modalControl}
-          viewWidth={props.viewWidth}
-          key={project.name}
-        />
-      );
-    } else {
-      return (
-        <RightSidedCardPost
-          project={project}
-          modalControl={props.modalControl}
-          viewWidth={props.viewWidth}
-          key={project.name}
-        />
-      );
-    }
-  });
+  //const projectKeys = Object.keys(projects);
+  if (Array.isArray(projects)) {
+    return projects.map((project, i) => {
+      if (i % 2 === 0 || props.viewWidth < 768) {
+        return (
+          <LeftSidedCardPost
+            project={project}
+            modalControl={props.modalControl}
+            viewWidth={props.viewWidth}
+            key={project.name}
+          />
+        );
+      } else {
+        return (
+          <RightSidedCardPost
+            project={project}
+            modalControl={props.modalControl}
+            viewWidth={props.viewWidth}
+            key={project.name}
+          />
+        );
+      }
+    });
+  } else {
+    return (
+      <LeftSidedCardPost
+        project={projects}
+        viewWidth={props.viewWidth}
+        key={projects.name}
+      />
+    );
+  }
 };
 
 const LeftSidedCardPost = props => {
@@ -153,6 +158,7 @@ const LeftSidedCardPost = props => {
     "images" in project && project["images"].length > 0
       ? project["images"]["0"]["alt"]
       : "Placeholder";
+  console.log(`This is ${project.name}`);
   return (
     <>
       <Card>
@@ -161,12 +167,16 @@ const LeftSidedCardPost = props => {
             {props.viewWidth >= 768 || project["images"].length <= 1 ? (
               <img
                 className={cnames("align-self-center", postlist.cardImg, {
-                  [postlist.clickable]: props.viewWidth >= 992
+                  [postlist.clickable]:
+                    props.viewWidth >= 992 &&
+                    project.name !== "Aspiring Jack of All Trades"
                 })}
                 src={imageSrc}
                 alt={imageAlt}
                 onClick={() => {
-                  props.modalControl(project);
+                  if (project.name !== "Aspiring Jack of All Trades") {
+                    props.modalControl(project);
+                  }
                 }}
                 onError={e => {
                   e.target.onerror = null;

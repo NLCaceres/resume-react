@@ -59,7 +59,7 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/">
-            <h1>Under Construction</h1>
+            <PostListView tabId="About Me!" viewWidth={this.state.width} />
           </Route>
           <Route exact path="/iOS">
             <PostListView tabId="iOS" viewWidth={this.state.width} />

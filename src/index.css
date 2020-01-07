@@ -48,6 +48,10 @@ code {
   }
 } */
 
+nav > a:hover {
+  color: lime !important;
+}
+
 h1,
 h4 {
   color: white;
