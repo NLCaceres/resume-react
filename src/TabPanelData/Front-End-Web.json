@@ -2,7 +2,7 @@
   "Major-projects": [
     {
       "name": "Infection Control Front-end",
-      "desc": "Originally an idea of my father's, I began this app on iOS and Android, but as I began to build out the back-end to collect the data pertinent to an Infection & Control Department, I increasingly wanted to work with Angular 2+ for a better understanding of front-end frameworks as well as to allow a better online experience for users of the iOS and Android apps. While an Infection Control Practicioneer could use the phone apps on the go, having a centralized hub to keep track of reports or to control settings across users seemed more and more like an extremely useful feature that would be indispensable once fully fledged.",
+      "desc": "Originally an idea of my father's, I began this app on iOS and Android, but as I began to build out the back-end to collect the data pertinent to an Infection & Control Department, I increasingly wanted to work with Angular 2+ for a better understanding of front-end frameworks as well as to allow a better online experience for users of the iOS and Android apps. While an Infection Control Practicioneer could use the phone apps on the go, having a centralized hub to keep track of reports or to control settings across users seemed more and more like an extremely useful feature that would be indispensable once fully fledged. In the future, I'd like to better adapt the components for general use and so they could more simply use the available endpoints from the back-end REST API.",
       "images": [
         {
           "src": "https://imgur.com/9GIdK1H.png",
@@ -34,7 +34,7 @@
     },
     {
       "name": "Car Lords - The New Car Site to Compete and Beat the Rest",
-      "desc": "For my last assignment of my ITP 301 class for Web Dev, I wanted to create something that I would find useful in my own life. Though it was incredibly difficult to find data relating to cars (even basic info like car models and makes), over time I was able to accomplish a great deal with limited time and resources. Using the Edmunds API (ten requests a day at the time), I was able to carefully test my DOM manipulation skills and the page itself. Without a front-end framework, I managed to create three 'pages' that dealt with the initial search for a car of a certain model, make and year, displayed a list of articles related to a search keyword, and displayed a list of nearby new and used cars available to buy.",
+      "desc": "For my last assignment of my ITP 301 class for Web Dev, I wanted to create something that I would find useful in my own life. Though it was incredibly difficult to find data relating to cars (even basic info like car models and makes), over time I was able to accomplish a great deal with limited time and resources. Using the Edmunds API (ten requests a day at the time), I was able to carefully test my Document Object Model (DOM) manipulation skills and the page itself. Without a front-end framework, I managed to create three 'pages' that dealt with the initial search for a car of a certain model, make and year, displayed a list of articles related to a search keyword, and displayed a list of nearby new and used cars available to buy. If I could amass a free use collection of car data, I'd love to get this project going again, but unfortunately Edmunds made the data entirely private.",
       "images": [
         {
           "src": "https://imgur.com/JP9uLEW.png",
@@ -52,7 +52,7 @@
   "Small-projects": [
     {
       "name": "The Walking Dead Fansite",
-      "desc": "My first official attempt at anything related to Web Development and the Front-End. In my USC class ITP 301, we were instructed to create a fansite for one of our favorite TV shows. At the time, the Walking Dead was probably at its highest viewership with the shock of the season 7 opening and 6 excellent seasons prior. In my little project, I'd create a simple html file with simple css talking about main characters and the first 5 seasons.",
+      "desc": "My first official attempt at anything related to Web Development and the Front-End. In my USC class ITP 301, we were instructed to create a fansite for one of our favorite TV shows. At the time, the Walking Dead was probably at its highest viewership with the shock of the season 7 opening and 6 excellent seasons prior. In my little project, I'd create a simple html file with simple css talking about the main characters and the first 5 seasons.",
       "images": [
         {
           "src": "https://i.imgur.com/92xr3mE.png",
@@ -64,7 +64,7 @@
     },
     {
       "name": "My Girlfriend and I's Photo Gallery",
-      "desc": "As a part of the second assignment for my ITP 301 class, we made a point of overviewing jQuery for a couple weeks which culminated in this project, a simple gallery using jQuery to highlight images and swap in any one that was clicked into a main image frame.",
+      "desc": "As a part of the second assignment for my ITP 301 class, we made a point of overviewing jQuery for a couple weeks which culminated in this project, a simple gallery using jQuery to highlight images and when clicked, the image would be swapped into the main frame.",
       "images": [
         {
           "src": "https://i.imgur.com/wDMkYkJ.png",
@@ -76,7 +76,7 @@
     },
     {
       "name": "Color my Life",
-      "desc": "In the third assignment for ITP 301, the task was even more simple than the previous one, namely create a page that describes your life in a nutshell AND javascript that will modify the CSS of various parts of the page. Using radio buttons and a pair of JS functions, a user can easily swap out the background to whatever basic colors they want and to a font color they'd prefer.",
+      "desc": "In the third assignment for ITP 301, the task was even more simple than the previous one, namely create a page that describes your life in a nutshell AND use javascript to modify the CSS of various parts of the page. Using radio buttons and a pair of JS functions, a user can easily swap out the background to whatever basic colors they want and to a font color they'd prefer.",
       "images": [
         {
           "src": "https://i.imgur.com/6lRZSbd.png",
@@ -88,7 +88,7 @@
     },
     {
       "name": "Need a Calculator?",
-      "desc": "Getting into the groove of my first Web Development class, we finally got into a project that was a bit more practical and useful, a calculator! Picking out a few images for calculator buttons and laying them out as expected for a calculator, I added onClick attributes to each button which would add numbers to the text input sitting atop. As the user clicks the operators along the side, the number will disappear in the text field and allow the next number to be input until you finally click the equals sign and get your result. Simple and plenty useful!",
+      "desc": "Getting into the groove of my first Web Development class, we finally got into a project that was a bit more practical and useful, a calculator! Picking out a few images for calculator buttons and laying them out as expected for a calculator, I added onClick attributes to each button which would add numbers to the text field sitting atop. As the user clicks the operators along the side, the number will disappear in the text field and allow the next number to be input until you finally click the equals sign and get your result. Simple and plenty useful!",
       "images": [
         {
           "src": "https://imgur.com/FduCCFf.png",
@@ -100,7 +100,7 @@
     },
     {
       "name": "The New and Improved Photo Gallery",
-      "desc": "Improving upon the previous jQuery gallery my ITP 301 class had made, I'd change the layout adding more images, focus it around my girlfriend and I's Walt Disney World trip, and use vanilla Javascript alone. The main image frame and row images would function similarly, highlighting onHover, swapping onClick, but I'd include a row of random images underneath the main image and above the gallery of images. With the row of random images, I included a random button that would choose a set of three images to display (though it could choose two of the same). Not perfect, but a good step towards a fully fledged project and one heck of a road trip!",
+      "desc": "Improving upon the previous jQuery gallery my ITP 301 class had made, I'd change the layout adding more images, focus it around my girlfriend and I's Walt Disney World trip, using vanilla Javascript alone. The main image frame and row images would function similarly, highlighting when the mouse hovers over and swapping on click, but I'd include a row of random images underneath the main frame and above the larger full gallery of images. With the row of random images, I included a random button that would choose a set of three images to display (though it could choose two of the same). Not perfect, but a good step towards a fully fledged project and one heck of a road trip!",
       "images": [
         {
           "src": "https://imgur.com/XVzYyDm.png",
