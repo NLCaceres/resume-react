@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SimpleNavBar from "./SimpleNavbar/SimpleNavbar";
 import PostListView from "./PostListView/PostListView.js";
 import throttle from "lodash.throttle";
@@ -50,7 +50,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <BrowserRouter basename="/resume-react">
         <SimpleNavBar
           openTab={this.openTab}
           //activeTab={this.state.activeTab}
@@ -87,7 +87,7 @@ class App extends Component {
             <PostListView tabId="Back-End" viewWidth={this.state.width} />
           </TabPane>
         </TabContent> */}
-      </Router>
+      </BrowserRouter>
     );
   }
 }

@@ -114,7 +114,7 @@ const FullNav = props => {
           "px-3 py-1",
           "font-weight-bold"
         )}
-        href="/"
+        href="/resume-react"
       >
         Nick Caceres
       </NavbarBrand>
