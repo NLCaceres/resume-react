@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/resume-react/static/css/main.dd64f0a1.chunk.css",
-    "main.js": "/resume-react/static/js/main.78b74763.chunk.js",
-    "main.js.map": "/resume-react/static/js/main.78b74763.chunk.js.map",
+    "main.css": "/resume-react/static/css/main.20dd2fb2.chunk.css",
+    "main.js": "/resume-react/static/js/main.2c975d6e.chunk.js",
+    "main.js.map": "/resume-react/static/js/main.2c975d6e.chunk.js.map",
     "runtime-main.js": "/resume-react/static/js/runtime-main.ccb71c90.js",
     "runtime-main.js.map": "/resume-react/static/js/runtime-main.ccb71c90.js.map",
-    "static/css/2.5c5f4c00.chunk.css": "/resume-react/static/css/2.5c5f4c00.chunk.css",
-    "static/js/2.23aabee8.chunk.js": "/resume-react/static/js/2.23aabee8.chunk.js",
-    "static/js/2.23aabee8.chunk.js.map": "/resume-react/static/js/2.23aabee8.chunk.js.map",
+    "static/css/2.c0f5ac91.chunk.css": "/resume-react/static/css/2.c0f5ac91.chunk.css",
+    "static/js/2.b5800b4d.chunk.js": "/resume-react/static/js/2.b5800b4d.chunk.js",
+    "static/js/2.b5800b4d.chunk.js.map": "/resume-react/static/js/2.b5800b4d.chunk.js.map",
     "index.html": "/resume-react/index.html",
-    "precache-manifest.89ac22d8bacdb5a3dce1f56de861489b.js": "/resume-react/precache-manifest.89ac22d8bacdb5a3dce1f56de861489b.js",
+    "precache-manifest.03211e14eb5890827303d89f789d5f4e.js": "/resume-react/precache-manifest.03211e14eb5890827303d89f789d5f4e.js",
     "service-worker.js": "/resume-react/service-worker.js",
-    "static/css/2.5c5f4c00.chunk.css.map": "/resume-react/static/css/2.5c5f4c00.chunk.css.map",
-    "static/css/main.dd64f0a1.chunk.css.map": "/resume-react/static/css/main.dd64f0a1.chunk.css.map",
-    "static/js/2.23aabee8.chunk.js.LICENSE": "/resume-react/static/js/2.23aabee8.chunk.js.LICENSE"
+    "static/css/2.c0f5ac91.chunk.css.map": "/resume-react/static/css/2.c0f5ac91.chunk.css.map",
+    "static/css/main.20dd2fb2.chunk.css.map": "/resume-react/static/css/main.20dd2fb2.chunk.css.map",
+    "static/js/2.b5800b4d.chunk.js.LICENSE": "/resume-react/static/js/2.b5800b4d.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.ccb71c90.js",
-    "static/css/2.5c5f4c00.chunk.css",
-    "static/js/2.23aabee8.chunk.js",
-    "static/css/main.dd64f0a1.chunk.css",
-    "static/js/main.78b74763.chunk.js"
+    "static/css/2.c0f5ac91.chunk.css",
+    "static/js/2.b5800b4d.chunk.js",
+    "static/css/main.20dd2fb2.chunk.css",
+    "static/js/main.2c975d6e.chunk.js"
   ]
 }
