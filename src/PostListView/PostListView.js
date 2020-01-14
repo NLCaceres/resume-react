@@ -158,7 +158,7 @@ const LeftSidedCardPost = props => {
     "images" in project && project["images"].length > 0
       ? project["images"]["0"]["alt"]
       : "Placeholder";
-  console.log(`This is ${project.name}`);
+  console.log(`This is ${project.images}`);
   return (
     <>
       <Card>
@@ -171,7 +171,16 @@ const LeftSidedCardPost = props => {
                     props.viewWidth >= 992 &&
                     project.name !== "Aspiring Jack of All Trades"
                 })}
-                src={imageSrc}
+                style={{
+                  height:
+                    project.images ===
+                      "https://via.placeholder.com/350.png?text=Profile" ||
+                    project.images ===
+                      "https://via.placeholder.com/350.png?text=Project"
+                      ? "100%"
+                      : ""
+                }}
+                src={imageSrc || project.images}
                 alt={imageAlt}
                 onClick={() => {
                   if (project.name !== "Aspiring Jack of All Trades") {

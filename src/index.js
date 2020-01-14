@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SimpleNavBar from "./SimpleNavbar/SimpleNavbar";
 import PostListView from "./PostListView/PostListView.js";
-import { TabContent, TabPane } from "reactstrap";
 import throttle from "lodash.throttle";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
