@@ -14,7 +14,7 @@ import SimpleCarousel from "../SimpleCarousel/SimpleCarousel";
 import CardImageModal from "../CardImageModal/CardImageModal";
 import cnames from "classnames";
 import postlist from "./PostList.module.css";
-import iOSProjects from "../TabPanelData/iOSProjects.json"; // Imports are static so you have to list contents one by one
+import iOSProjects from "../TabPanelData/iOS.json"; // Imports are static so you have to list contents one by one
 import androidProjects from "../TabPanelData/Android.json";
 import frontEndProjects from "../TabPanelData/Front-End-Web.json";
 import backEndProjects from "../TabPanelData/Back-End-Web.json";

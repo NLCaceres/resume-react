@@ -114,12 +114,13 @@
           "src": "https://imgur.com/92TLsI3.png",
           "alt": "Add Ingredient to Refrigerator List"
         }
-      ]
+      ],
+      "github": "https://github.com/NLCaceres/recipes-galore"
     }
   ],
   "Small-projects": [
     {
-      "name": "Keeping data secured ...as long as the bugs don't leak them. iOS",
+      "name": "Keeping Data Secured ...as Long as the Bugs Don't Leak Them. iOS",
       "desc": "This was one of my last projects that used Objective-C, and would have been a fun example of keychain, using internal passwords or fingerprints securely. Unfortunately, keychain was horribly bugged at the time and required at least a few workarounds to get it to properly work. After searching tirelessly to find some way to make keychain work as intended and expected based on Apple's documentation, I found several suggestions on StackOverflow and various sites online on what to change to enable keychain. Thankfully the workaround I found temporarily fixed keychain for me and finally a user could write notes that were secure from any prying eyes.",
       "images": [
         {
@@ -143,10 +144,10 @@
           "alt": "If the user exits the app, this lock screen will appear preventing them from accessing the app secured information"
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/secured-keychain-example"
     },
     {
-      "name": "Keeping things flowing with background downloading iOS",
+      "name": "Keeping Things Flowing with Background Downloading iOS",
       "desc": "This project was built to not only practice working with REST, grabbing images online from various URLs, but also to see how Table Views could be further customized as objects loaded in series. Using Grand Central Dispatch to create queues and handle threads, the project would make GET requests, parse the response, and slide each object as a cell into the table when ready. In addition to sliding in the images, depending on the content of the picture (if Apple's Face recognition API detects faces or not), the app will make adjustments. For those pictures that it detects faces, it'll count them and apply a blur. For those that do not have faces, it'll add hue and exposure, discoloring the image.",
       "images": [
         {
@@ -162,10 +163,10 @@
           "alt": "Home screen displaying images as they download and are modified."
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/BGDownloaderExample"
     },
     {
-      "name": "Remembering my contacts with help from CoreData iOS",
+      "name": "Remembering My Contacts with Help from CoreData iOS",
       "desc": "In this app, I took my first steps in learning Swift. Incorporating Apple's CoreData for data persistance, a user could save contacts locally, keeping things simple without a database.",
       "images": [
         {
@@ -177,7 +178,7 @@
           "alt": "Add contact screen"
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/PhoneBookManager"
     },
     {
       "name": "Playing with UI-Kit iOS",
@@ -196,7 +197,7 @@
           "alt": "Home screen with a new circular view dropping down."
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/UIKitDynamicsProjectExample"
     },
     {
       "name": "Quotes to Remember Project",
@@ -231,7 +232,7 @@
           "alt": "Table view list of the user's favorite quotes."
         }
       ],
-      "github": "github-url"
+      "github": "https://github.com/NLCaceres/Full-Quote-Project"
     },
     {
       "name": "Los Angeles Sightseeing",
@@ -253,10 +254,11 @@
           "src": "https://imgur.com/qDV3YP4.png",
           "alt": "The California Science Center website."
         }
-      ]
+      ],
+      "github": "https://github.com/NLCaceres/simple-places-iOS"
     },
     {
-      "name": "Create your own Story!",
+      "name": "Create Your Own Story!",
       "desc": "Since iOS is more than just the iPhone after all, my professor ensured that we took the time to play with the iPad Simulator in XCode as well. At the time, constraints were confusing enough for me, so considering the UI as well as making sense of objective C felt tough. Making a fun app in the style of MadLibs, on the other hand, definitely helped to define a concrete goal to work to.",
       "images": [
         {
@@ -279,7 +281,8 @@
           "src": "https://imgur.com/ahpOJD2.png",
           "alt": "Main screen with bonus options and story open."
         }
-      ]
+      ],
+      "github": "https://github.com/NLCaceres/make-your-own-story"
     },
     {
       "name": "Batman vs Superman iOS",
@@ -293,7 +296,8 @@
           "src": "https://imgur.com/ZQDA9mn.png",
           "alt": "Main screen without the name but having chosen Superman"
         }
-      ]
+      ],
+      "github": "https://github.com/NLCaceres/BvS-iOS"
     }
   ]
 }
