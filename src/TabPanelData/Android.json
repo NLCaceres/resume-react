@@ -101,13 +101,23 @@
     {
       "name": "Work-it Android",
       "desc": "Ever since I started learning iOS, I hoped to be able to duplicate my projects in Android. Eventually, I would be able to take a class focused on Android and use the knowledge that came from learning iOS to move more smoothly into Android. As stated in my iOS section, the idea for this app came from conversations with my best friend about an all encompassing fitness and health app. There are plenty of apps that cover nutrition, and plenty that cover exercise, but we wanted an app that would fit it all in one clean space.",
-      "images": "https://via.placeholder.com/350.png?text=Project",
+      "images": [
+        {
+          "src": "https://via.placeholder.com/350.png?text=Project",
+          "alt": "Temporary project placeholder"
+        }
+      ],
       "github": "https://github.com/NLCaceres/WorkIt-Android"
     },
     {
       "name": "Test Takin' 'n Ace'n'",
       "desc": "A fairly simple idea given to me by my dad and a few friends with the goal of helping people to study, ace that exam, and keep doing so",
-      "images": "https://via.placeholder.com/350.png?text=Project",
+      "images": [
+        {
+          "src": "https://via.placeholder.com/350.png?text=Project",
+          "alt": "Temporary project placeholder"
+        }
+      ],
       "github": "github-url"
     }
   ],
