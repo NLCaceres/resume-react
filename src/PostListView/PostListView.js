@@ -158,7 +158,6 @@ const LeftSidedCardPost = props => {
     "images" in project && project["images"].length > 0
       ? project["images"]["0"]["alt"]
       : "Placeholder";
-  console.log(`This is ${project.images}`);
   return (
     <>
       <Card>
