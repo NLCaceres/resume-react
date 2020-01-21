@@ -11,8 +11,8 @@ const CardImgModal = props => {
   let projectImgs;
   let carousel;
   if (project) {
-    projectName = project["name"];
-    projectImgs = project["images"];
+    projectName = project.title;
+    projectImgs = project.post_images;
     if (projectImgs.length > 1) {
       carousel = (
         <SimpleCarousel images={projectImgs} viewWidth={props.viewWidth} />
@@ -20,8 +20,8 @@ const CardImgModal = props => {
     } else if (projectImgs.length === 1) {
       carousel = (
         <img
-          src={projectImgs[0]["src"]}
-          alt={projectImgs[0]["alt"]}
+          src={projectImgs[0].image_url}
+          alt={projectImgs[0].alt_text}
           className={cnames("img-fluid", cardImg.cardImg)}
         />
       );

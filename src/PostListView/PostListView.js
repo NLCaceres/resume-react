@@ -14,11 +14,11 @@ import SimpleCarousel from "../SimpleCarousel/SimpleCarousel";
 import CardImageModal from "../CardImageModal/CardImageModal";
 import cnames from "classnames";
 import postlist from "./PostList.module.css";
-import iOSProjects from "../TabPanelData/iOS.json"; // Imports are static so you have to list contents one by one
-import androidProjects from "../TabPanelData/Android.json";
-import frontEndProjects from "../TabPanelData/Front-End-Web.json";
-import backEndProjects from "../TabPanelData/Back-End-Web.json";
-import aboutMe from "../TabPanelData/About-Me.json";
+// import iOSProjects from "../TabPanelData/iOS.json"; // Imports are static so you have to list contents one by one
+// import androidProjects from "../TabPanelData/Android.json";
+// import frontEndProjects from "../TabPanelData/Front-End-Web.json";
+// import backEndProjects from "../TabPanelData/Back-End-Web.json";
+// import aboutMe from "../TabPanelData/About-Me.json";
 const util = require("util"); // Helps debug JS objects
 
 // FUTURE INSTALL FOR UNIQUE KEYS - Nano-ID
@@ -29,10 +29,42 @@ class PostListView extends Component {
     this.state = {
       width: window.innerWidth,
       modal: false,
-      modalProject: null
+      modalProject: null,
+      projectList: {
+        majorProjects: [],
+        minorProjects: []
+      } // Without this init, it won't work
     };
 
     this.openModal = this.openModal.bind(this);
+    this.fetchProjects = this.fetchProjects.bind(this);
+  }
+
+  async componentDidMount() {
+    this.fetchProjects();
+  }
+
+  async fetchProjects() {
+    let queryParams = this.props.tabId;
+    if (queryParams !== "iOS") {
+      queryParams = queryParams.toLowerCase();
+    }
+    if (queryParams === "front-end" || queryParams === "back-end") {
+      queryParams = queryParams.replace("-", "_");
+    }
+
+    const filterStr = `?project_type=${queryParams}`;
+    const httpResponse = await fetch(`/api/posts${filterStr}`);
+    const jsonResponse = await httpResponse.json();
+
+    const projectList = { ...this.state.projectList }; // Spread the object, set its values and set the object!
+    projectList.majorProjects = jsonResponse.filter(
+      project => project["project_size"] === "major_project"
+    );
+    projectList.minorProjects = jsonResponse.filter(
+      project => project["project_size"] === "small_project"
+    );
+    this.setState({ projectList: projectList }); // Returns array. Requires array to already exist in state object!
   }
 
   openModal(project) {
@@ -54,54 +86,52 @@ class PostListView extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.viewWidth >= 768 && (
-          <CardImageModal
-            modalControl={this.openModal}
-            isModalOpen={this.state.modal}
-            project={this.state.modalProject}
+      (this.state.projectList.majorProjects.length > 0 ||
+        this.state.projectList.minorProjects.length > 0) && (
+        <div>
+          {this.props.viewWidth >= 768 && (
+            <CardImageModal
+              modalControl={this.openModal}
+              isModalOpen={this.state.modal}
+              project={this.state.modalProject}
+              viewWidth={this.props.viewWidth}
+            />
+          )}
+          <h1>{this.props.tabId}</h1>
+          <ProjectList
+            tabId={this.props.tabId}
+            projectList={this.state.projectList}
             viewWidth={this.props.viewWidth}
+            modalControl={this.openModal}
           />
-        )}
-        <h1>{this.props.tabId}</h1>
-        <ProjectList
-          tabId={this.props.tabId}
-          viewWidth={this.props.viewWidth}
-          modalControl={this.openModal}
-        />
-      </div>
+        </div>
+      )
     );
   }
 }
 
 const ProjectList = props => {
-  let currentTab;
-  if (props.tabId === "iOS") {
-    currentTab = iOSProjects;
-  } else if (props.tabId === "Android") {
-    currentTab = androidProjects;
-  } else if (props.tabId === "Front-End") {
-    currentTab = frontEndProjects;
-  } else if (props.tabId === "Back-End") {
-    currentTab = backEndProjects;
-  } else {
-    currentTab = aboutMe;
-  }
+  // let currentTab;
+  // if (props.tabId === "iOS") {
+  //   currentTab = iOSProjects;
+  // } else if (props.tabId === "Android") {
+  //   currentTab = androidProjects;
+  // } else if (props.tabId === "Front-End") {
+  //   currentTab = frontEndProjects;
+  // } else if (props.tabId === "Back-End") {
+  //   currentTab = backEndProjects;
+  // } else {
+  //   currentTab = aboutMe;
+  // }
 
   // For future reference, can use nanoid, shortid, uuid from npm for keys on lists or id on forms
   // Otherwise using other props is helpful as a key
-  let projectTypes = Object.keys(currentTab);
-  return projectTypes.map((projectType, i) => {
-    // Fancy way to convert json hyphenated names to pretty names
-    const projectTypeNoHyphen = projectType.replace(/-/g, " ");
-    const properProjectType = projectTypeNoHyphen.replace(/\b\w/g, str =>
-      str.toUpperCase()
-    );
-    const projectSectionKey = props.tabId + " " + projectType;
-    const projects = currentTab[projectType];
+  return Object.values(props.projectList).map((projects, i) => {
+    const projectSize = i === 0 ? "Major Projects" : "Small Projects";
+    const projectSectionKey = props.tabId + " " + projectSize;
     return (
       <div key={projectSectionKey}>
-        <h1>{properProjectType}</h1>
+        <h1>{projectSize}</h1>
         <ProjectSection
           projects={projects}
           viewWidth={props.viewWidth}
@@ -114,16 +144,17 @@ const ProjectList = props => {
 
 const ProjectSection = props => {
   const projects = props.projects;
-  //const projectKeys = Object.keys(projects);
   if (Array.isArray(projects)) {
     return projects.map((project, i) => {
+      console.log(`This is a project: ${project.title}`);
+      console.log(project);
       if (i % 2 === 0 || props.viewWidth < 768) {
         return (
           <LeftSidedCardPost
             project={project}
             modalControl={props.modalControl}
             viewWidth={props.viewWidth}
-            key={project.name}
+            key={project.title}
           />
         );
       } else {
@@ -132,7 +163,7 @@ const ProjectSection = props => {
             project={project}
             modalControl={props.modalControl}
             viewWidth={props.viewWidth}
-            key={project.name}
+            key={project.title}
           />
         );
       }
@@ -151,39 +182,39 @@ const ProjectSection = props => {
 const LeftSidedCardPost = props => {
   const project = props.project;
   const imageSrc =
-    "images" in project && project["images"].length > 0
-      ? project["images"]["0"]["src"]
+    project.post_images.length > 0
+      ? project.post_images["0"].image_url
       : "No img";
   const imageAlt =
-    "images" in project && project["images"].length > 0
-      ? project["images"]["0"]["alt"]
+    project.post_images.length > 0
+      ? project.post_images["0"].alt_text
       : "Placeholder";
-  console.log(`This is ${project.images}`);
+  const backupImgCheck =
+    imageSrc === "https://via.placeholder.com/350.png?text=Profile" ||
+    imageSrc === "https://via.placeholder.com/350.png?text=Project";
+  const aboutMeTitleCheck = project.title !== "Aspiring Jack of All Trades";
   return (
     <>
       <Card>
         <Row noGutters>
           <Col xs="12" md="2" className="d-flex justify-content-center">
-            {props.viewWidth >= 768 || project["images"].length <= 1 ? (
+            {props.viewWidth >= 768 || project.post_images.length <= 1 ? (
               <img
-                className={cnames("align-self-center", postlist.cardImg, {
-                  [postlist.clickable]:
-                    props.viewWidth >= 992 &&
-                    project.name !== "Aspiring Jack of All Trades"
-                })}
-                style={{
-                  height:
-                    project.images ===
-                      "https://via.placeholder.com/350.png?text=Profile" ||
-                    project.images ===
-                      "https://via.placeholder.com/350.png?text=Project"
-                      ? "100%"
-                      : ""
-                }}
-                src={imageSrc || project.images}
+                className={cnames(
+                  "align-self-center",
+                  {
+                    [postlist.cardImg]: !backupImgCheck,
+                    [postlist.cardImgBackupStyle]: backupImgCheck
+                  },
+                  {
+                    [postlist.clickable]:
+                      props.viewWidth >= 992 && aboutMeTitleCheck
+                  }
+                )}
+                src={imageSrc || project.post_images}
                 alt={imageAlt}
                 onClick={() => {
-                  if (project.name !== "Aspiring Jack of All Trades") {
+                  if (aboutMeTitleCheck) {
                     props.modalControl(project);
                   }
                 }}
@@ -196,7 +227,7 @@ const LeftSidedCardPost = props => {
               />
             ) : (
               <SimpleCarousel
-                images={project["images"]}
+                images={project.post_images}
                 viewWidth={props.viewWidth}
               />
             )}
@@ -204,10 +235,10 @@ const LeftSidedCardPost = props => {
           <Col xs="12" md="10">
             <CardBody>
               <CardTitle className="font-weight-bold">
-                {project["name"]}
+                {project.title}
               </CardTitle>
               <CardText className={cnames(postlist.cardText)}>
-                {project["desc"]}
+                {project.description}
               </CardText>
               <Button
                 className={cnames(
@@ -216,11 +247,11 @@ const LeftSidedCardPost = props => {
                   "font-weight-bold",
                   { "d-block": props.viewWidth >= 992 }
                 )}
-                href={project["github"]}
+                href={project.github_url}
               >
                 Github Page
               </Button>
-              {project["url"] != null && (
+              {project.url != null && (
                 <Button
                   className={cnames(
                     postlist.blockButton,
@@ -228,7 +259,7 @@ const LeftSidedCardPost = props => {
                     { "ml-4": props.viewWidth < 992 },
                     { "d-block mt-4": props.viewWidth >= 992 }
                   )}
-                  href={project["url"]}
+                  href={project.github_url}
                 >
                   Home Page
                 </Button>
@@ -244,12 +275,12 @@ const LeftSidedCardPost = props => {
 const RightSidedCardPost = props => {
   const project = props.project;
   const imageSrc =
-    "images" in project && project["images"].length > 0
-      ? project["images"]["0"]["src"]
+    project.post_images.length > 0
+      ? project.post_images["0"].image_url
       : "No img";
   const imageAlt =
-    "images" in project && project["images"].length > 0
-      ? project["images"]["0"]["alt"]
+    project.post_images.length > 0
+      ? project.post_images["0"].alt_text
       : "Placeholder";
   return (
     <>
@@ -258,9 +289,9 @@ const RightSidedCardPost = props => {
           <Col xs="12" md="10">
             <CardBody>
               <CardTitle className="font-weight-bold">
-                {project["name"]}
+                {project.title}
               </CardTitle>
-              <CardText className="">{project["desc"]}</CardText>
+              <CardText className="">{project.description}</CardText>
               <Button
                 className={cnames(
                   postlist.githubLink,
@@ -268,11 +299,11 @@ const RightSidedCardPost = props => {
                   "font-weight-bold",
                   { "d-block": props.viewWidth >= 992 }
                 )}
-                href={project["github"]}
+                href={project.github_url}
               >
                 Github Page
               </Button>
-              {project["url"] != null && (
+              {project.url != null && (
                 <Button
                   className={cnames(
                     postlist.blockButton,
@@ -280,7 +311,7 @@ const RightSidedCardPost = props => {
                     { "ml-4": props.viewWidth < 992 },
                     { "d-block mt-4": props.viewWidth >= 992 }
                   )}
-                  href={project["url"]}
+                  href={project.github_url}
                 >
                   Home Page
                 </Button>
