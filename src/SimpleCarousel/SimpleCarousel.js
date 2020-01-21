@@ -58,7 +58,7 @@ class SimpleCarousel extends Component {
     console.log("Current viewWidth: " + this.props.viewWidth);
     const slides = projectImgs.map(image => {
       return (
-        <CarouselItem key={image.src}>
+        <CarouselItem key={image.image_url}>
           <img
             className={cnames(
               "img-fluid",
@@ -66,8 +66,8 @@ class SimpleCarousel extends Component {
                 ? carousel.slide
                 : carousel.mobileSlide
             )}
-            src={image.src}
-            alt={image.altText}
+            src={image.image_url}
+            alt={image.alt_text}
           />
           <CarouselCaption captionText="" />
         </CarouselItem>
