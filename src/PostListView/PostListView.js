@@ -38,22 +38,43 @@ class PostListView extends Component {
 
     this.openModal = this.openModal.bind(this);
     this.fetchProjects = this.fetchProjects.bind(this);
+    //this.fetchAboutMe = this.fetchAboutMe.bind(this);
+    this.fetchProjectSet = this.fetchProjectSet.bind(this);
   }
 
   async componentDidMount() {
     this.fetchProjects();
   }
 
+  async componentDidUpdate(prevProps) {
+    // !!! CHECK IF IT IS CONSTANTLY FIRING!
+    if (this.props.location !== prevProps.location) {
+      console.log("Component Update fired");
+      this.fetchProjects();
+    }
+  }
+
   async fetchProjects() {
     let queryParams = this.props.tabId;
+    console.log(`Tab ID: ${this.props.tabId}`);
+    if (queryParams === "About Me!") {
+      const httpResponse = await fetch("/api/posts?project_type=null");
+      const jsonResponse = await httpResponse.json();
+      const projectList = { ...this.state.projectList };
+      projectList.majorProjects.unshift(jsonResponse);
+      this.setState({ projectList: projectList });
+      return;
+    }
     if (queryParams !== "iOS") {
       queryParams = queryParams.toLowerCase();
     }
     if (queryParams === "front-end" || queryParams === "back-end") {
       queryParams = queryParams.replace("-", "_");
     }
+    this.fetchProjectSet(`?project_type=${queryParams}`);
+  }
 
-    const filterStr = `?project_type=${queryParams}`;
+  async fetchProjectSet(filterStr) {
     const httpResponse = await fetch(`/api/posts${filterStr}`);
     const jsonResponse = await httpResponse.json();
 
@@ -111,33 +132,24 @@ class PostListView extends Component {
 }
 
 const ProjectList = props => {
-  // let currentTab;
-  // if (props.tabId === "iOS") {
-  //   currentTab = iOSProjects;
-  // } else if (props.tabId === "Android") {
-  //   currentTab = androidProjects;
-  // } else if (props.tabId === "Front-End") {
-  //   currentTab = frontEndProjects;
-  // } else if (props.tabId === "Back-End") {
-  //   currentTab = backEndProjects;
-  // } else {
-  //   currentTab = aboutMe;
-  // }
-
   // For future reference, can use nanoid, shortid, uuid from npm for keys on lists or id on forms
   // Otherwise using other props is helpful as a key
   return Object.values(props.projectList).map((projects, i) => {
     const projectSize = i === 0 ? "Major Projects" : "Small Projects";
+    const aboutMeTitle =
+      props.tabId === "About Me!" ? "Nicholas L. Caceres" : null;
     const projectSectionKey = props.tabId + " " + projectSize;
     return (
-      <div key={projectSectionKey}>
-        <h1>{projectSize}</h1>
-        <ProjectSection
-          projects={projects}
-          viewWidth={props.viewWidth}
-          modalControl={props.modalControl}
-        />
-      </div>
+      projects.length > 0 && (
+        <div key={projectSectionKey}>
+          <h1>{aboutMeTitle || projectSize}</h1>
+          <ProjectSection
+            projects={projects}
+            viewWidth={props.viewWidth}
+            modalControl={props.modalControl}
+          />
+        </div>
+      )
     );
   });
 };
@@ -146,8 +158,6 @@ const ProjectSection = props => {
   const projects = props.projects;
   if (Array.isArray(projects)) {
     return projects.map((project, i) => {
-      console.log(`This is a project: ${project.title}`);
-      console.log(project);
       if (i % 2 === 0 || props.viewWidth < 768) {
         return (
           <LeftSidedCardPost
@@ -251,7 +261,7 @@ const LeftSidedCardPost = props => {
               >
                 Github Page
               </Button>
-              {project.url != null && (
+              {project.homepage_url != null && (
                 <Button
                   className={cnames(
                     postlist.blockButton,
@@ -259,7 +269,7 @@ const LeftSidedCardPost = props => {
                     { "ml-4": props.viewWidth < 992 },
                     { "d-block mt-4": props.viewWidth >= 992 }
                   )}
-                  href={project.github_url}
+                  href={project.homepage_url}
                 >
                   Home Page
                 </Button>
@@ -303,7 +313,7 @@ const RightSidedCardPost = props => {
               >
                 Github Page
               </Button>
-              {project.url != null && (
+              {project.homepage_url != null && (
                 <Button
                   className={cnames(
                     postlist.blockButton,
@@ -311,7 +321,7 @@ const RightSidedCardPost = props => {
                     { "ml-4": props.viewWidth < 992 },
                     { "d-block mt-4": props.viewWidth >= 992 }
                   )}
-                  href={project.github_url}
+                  href={project.homepage_url}
                 >
                   Home Page
                 </Button>
