@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, withRouter } from "react-router-dom";
 import SimpleNavBar from "./SimpleNavbar/SimpleNavbar";
 import PostListView from "./PostListView/PostListView.js";
 import throttle from "lodash.throttle";
@@ -13,7 +13,6 @@ class App extends Component {
     super(props);
     this.openTab = this.openTab.bind(this);
     this.state = {
-      //activeTab: "iOS",
       width: window.innerWidth
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -41,6 +40,7 @@ class App extends Component {
   }
 
   openTab(tab) {
+    console.log(`Open tab called`);
     if (this.state.activeTab !== tab) {
       this.setState({
         activeTab: tab
@@ -51,27 +51,63 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter basename="/resume-react">
-        <SimpleNavBar
-          openTab={this.openTab}
-          //activeTab={this.state.activeTab}
-          viewWidth={this.state.width}
-        />
+        <SimpleNavBar openTab={this.openTab} viewWidth={this.state.width} />
         <Switch>
-          <Route exact path="/">
-            <PostListView tabId="About Me!" viewWidth={this.state.width} />
-          </Route>
-          <Route exact path="/iOS">
-            <PostListView tabId="iOS" viewWidth={this.state.width} />
-          </Route>
-          <Route exact path="/android">
-            <PostListView tabId="Android" viewWidth={this.state.width} />
-          </Route>
-          <Route exact path="/front-end">
-            <PostListView tabId="Front-End" viewWidth={this.state.width} />
-          </Route>
-          <Route exact path="/back-end">
-            <PostListView tabId="Back-End" viewWidth={this.state.width} />
-          </Route>
+          <Route
+            exact
+            path="/"
+            render={routeProps => (
+              <PostListView
+                tabId="About Me!"
+                viewWidth={this.state.width}
+                location={routeProps.location}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/iOS"
+            render={routeProps => (
+              <PostListView
+                tabId="iOS"
+                viewWidth={this.state.width}
+                location={routeProps.location}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/android"
+            render={routeProps => (
+              <PostListView
+                tabId="Android"
+                viewWidth={this.state.width}
+                location={routeProps.location}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/front-end"
+            render={routeProps => (
+              <PostListView
+                tabId="Front-End"
+                viewWidth={this.state.width}
+                location={routeProps.location}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/back-end"
+            render={routeProps => (
+              <PostListView
+                tabId="Back-End"
+                viewWidth={this.state.width}
+                location={routeProps.location}
+              />
+            )}
+          />
         </Switch>
         {/* <TabContent activeTab={this.state.activeTab} className="mx-3">
           <TabPane tabId="iOS">
